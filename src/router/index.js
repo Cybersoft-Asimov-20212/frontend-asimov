@@ -4,11 +4,11 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const routes = [
-  //{
-  //  path: '/about',
-  //  name: 'About',
-  //  component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  //}
+  {
+    path: '/',
+    name: 'announcements',
+    component: () => import(/* webpackChunkName: "about" */ '@/announcements/pages/announcements')
+  }
 ]
 
 const router = new VueRouter({
