@@ -17,7 +17,7 @@
         <v-divider></v-divider>
 
         <v-list dense rounded>
-          <v-list-item link to="/announcements">
+          <v-list-item link to="/teachers">
             <v-list-item-icon>
               <v-icon>mdi-monitor-dashboard</v-icon>
             </v-list-item-icon>
