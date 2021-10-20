@@ -2,24 +2,26 @@
   <div class="teachers">
     <v-row>
       <v-col cols="12">
-        <h1>Teachers</h1>
-      </v-col>
-      <v-col cols="12">
-        <v-container fluid>
-          <div v-for="teacher in teachers" :key="teacher.id">
-            <v-card class="mx-auto" width="345" max-height="350">
-              <v-card-text>
-                <div>Teacher</div>
-                <p id="nomTeacher" class="text-h4 text--primary">{{teacher.name}}</p>
-                <div>{{ teacher.lastname }}</div>
-                <p>Age: {{teacher.age}}</p>
-              </v-card-text>
-            </v-card>
-          </div>
-        </v-container>
+        <h1 class="mx-8">Teachers</h1>
       </v-col>
     </v-row>
-
+    <v-row>
+      <v-col cols="12">
+        <div class="d-flex flex-wrap justify-center mb-8">
+          <v-card v-for="teacher in teachers" :key="teacher.id" class="pb-2 ma-3" width="345" max-height="350">
+            <v-card-text>
+              <div>Teacher</div>
+              <p id="nomTeacher" class="text-h4 text--primary">{{teacher.name}}</p>
+              <div>{{ teacher.lastname }}</div>
+              <p>Age: {{teacher.age}}</p>
+            </v-card-text>
+            <v-card-actions>
+              <v-btn text color="indigo accent-4" class="font-weight-bold te">Learn More</v-btn>
+            </v-card-actions>
+          </v-card>
+        </div>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
