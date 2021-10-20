@@ -37,6 +37,14 @@
             </v-list-item-icon>
             <v-list-item-title>Teachers</v-list-item-title>
           </v-list-item>
+
+          <v-list-item link to="/competences">
+            <v-list-item-icon>
+              <v-icon>mdi-human-queue</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Competences</v-list-item-title>
+          </v-list-item>
+
         </v-list>
       </v-navigation-drawer>
 
