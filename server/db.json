@@ -140,302 +140,66 @@
     {
       "id": 1,
       "name": "Algebra",
-      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. ",
-      "items": [
-        {
-          "ide": 1,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        },
-        {
-          "ide": 2,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        },
-        {
-          "ide": 3,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        }
-      ]
+      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet."
     },
     {
       "id": 2,
-      "name": "Arithmetic",
-      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. ",
-      "items": [
-        {
-          "ide": 1,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        },
-        {
-          "ide": 2,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        },
-        {
-          "ide": 3,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        }
-      ]
+      "name": "Geometria",
+      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. "
     },
     {
       "id": 3,
-      "name": "Biology",
-      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. ",
-      "items": [
-        {
-          "ide": 1,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        },
-        {
-          "ide": 2,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        },
-        {
-          "ide": 3,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        }
-      ]
+      "name": "Geometria",
+      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. "
     },
     {
       "id": 4,
-      "name": "Anatomy",
-      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. ",
-      "items": [
-        {
-          "ide": 1,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        },
-        {
-          "ide": 2,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        },
-        {
-          "ide": 3,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        }
-      ]
+      "name": "Geometria",
+      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. "
     },
     {
       "id": 5,
-      "name": "Universal history",
-      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. ",
-      "items": [
-        {
-          "ide": 1,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        },
-        {
-          "ide": 2,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        },
-        {
-          "ide": 3,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        }
-      ]
+      "name": "Geometria",
+      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. "
     },
     {
       "id": 6,
-      "name": "History of Peru",
-      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. ",
-      "items": [
-        {
-          "ide": 1,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        },
-        {
-          "ide": 2,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        },
-        {
-          "ide": 3,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        }
-      ]
+      "name": "Geometria",
+      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. "
     },
     {
       "id": 7,
-      "name": "Geometry",
-      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. ",
-      "items": [
-        {
-          "ide": 1,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        },
-        {
-          "ide": 2,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        },
-        {
-          "ide": 3,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        }
-      ]
+      "name": "Geometria",
+      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. "
     },
     {
       "id": 8,
-      "name": "Trigonometry",
-      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. ",
-      "items": [
-        {
-          "ide": 1,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        },
-        {
-          "ide": 2,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        },
-        {
-          "ide": 3,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        }
-      ]
+      "name": "Geometria",
+      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. "
     },
     {
       "id": 9,
-      "name": "Economy",
-      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. ",
-      "items": [
-        {
-          "ide": 1,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        },
-        {
-          "ide": 2,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        },
-        {
-          "ide": 3,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        }
-      ]
+      "name": "Geometria",
+      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. "
     },
     {
       "id": 10,
-      "name": "Literature",
+      "name": "Geometria",
+      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. "
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "name": "Video",
       "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. ",
-      "items": [
-        {
-          "ide": 1,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        },
-        {
-          "ide": 2,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        },
-        {
-          "ide": 3,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        }
-      ]
+      "idCourse": 1
     },
     {
-      "id": 11,
-      "name": "Language",
+      "id": 2,
+      "name": "Documentacion",
       "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. ",
-      "items": [
-        {
-          "ide": 1,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        },
-        {
-          "ide": 2,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        },
-        {
-          "ide": 3,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        }
-      ]
-    },
-    {
-      "id": 12,
-      "name": "Mathematical reasoning",
-      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. ",
-      "items": [
-        {
-          "ide": 1,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        },
-        {
-          "ide": 2,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        },
-        {
-          "ide": 3,
-          "title": "Doc",
-          "resume": "Lorem ipsum",
-          "conexion": "https://www.youtube.com/"
-        }
-      ]
+      "idCourse": 1
     }
   ]
 }

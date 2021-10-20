@@ -17,11 +17,11 @@
         <v-divider></v-divider>
 
         <v-list dense rounded>
-          <v-list-item link to="/announcements">
+          <v-list-item link to="/courses">
             <v-list-item-icon>
               <v-icon>mdi-monitor-dashboard</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>Hello World</v-list-item-title>
+            <v-list-item-title>Courses</v-list-item-title>
           </v-list-item>
 
           <v-list-item link to="/announcements">
