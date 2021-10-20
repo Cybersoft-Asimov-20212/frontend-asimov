@@ -4,29 +4,23 @@
         <v-app-bar-nav-icon  @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <v-toolbar-title>Asimov</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn depressed rounded>Hello!</v-btn>
+        <v-btn depressed rounded class="text-capitalize">Profile<v-icon class="ml-2">mdi-account-circle</v-icon></v-btn>
       </v-app-bar>
 
       <v-navigation-drawer v-model="drawer" absolute bottom temporary>
         <v-list-item align="center">
           <v-list-item-content>
-            <v-list-item-title>Side-Menu</v-list-item-title>
+            <v-list-item-title class="font-weight-bold">Side-Menu-Director</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
         <v-divider></v-divider>
 
         <v-list dense rounded>
-          <v-list-item link to="/courses">
-            <v-list-item-icon>
-              <v-icon>mdi-monitor-dashboard</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Courses</v-list-item-title>
-          </v-list-item>
 
           <v-list-item link to="/announcements">
             <v-list-item-icon>
-              <v-icon>mdi-view-dashboard</v-icon>
+              <v-icon>mdi-bullhorn</v-icon>
             </v-list-item-icon>
             <v-list-item-title>Announcements</v-list-item-title>
           </v-list-item>
@@ -40,12 +34,36 @@
 
           <v-list-item link to="/competences">
             <v-list-item-icon>
-              <v-icon>mdi-human-queue</v-icon>
+              <v-icon>mdi-format-list-bulleted-square</v-icon>
             </v-list-item-icon>
             <v-list-item-title>Competences</v-list-item-title>
           </v-list-item>
-
         </v-list>
+
+        <v-divider></v-divider>
+        <v-list-item align="center">
+          <v-list-item-content>
+            <v-list-item-title class="font-weight-bold">Side-Menu-Teacher</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-divider></v-divider>
+
+        <v-list dense rounded>
+          <v-list-item link to="/courses">
+            <v-list-item-icon>
+              <v-icon>mdi-book-open-page-variant</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Courses</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item link to="/competences">
+            <v-list-item-icon>
+              <v-icon>mdi-format-list-bulleted-square</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Competences</v-list-item-title>
+          </v-list-item>
+        </v-list>
+
       </v-navigation-drawer>
 
       <v-main>
