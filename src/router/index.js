@@ -10,9 +10,19 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '@/announcements/pages/announcements')
   },
   {
+    path: '/announcements',
+    name: 'announcements',
+    component: () => import(/* webpackChunkName: "about" */ '@/announcements/pages/announcements')
+  },
+  {
     path: '/competences',
     name: 'competences',
     component: () => import(/* webpackChunkName: "about" */ '@/competences/pages/competences')
+  },
+  {
+    path: '/courses',
+    name: 'courses',
+    component: () => import(/* webpackChunkName: "about" */ '@/courses/pages/courses')
   }
 ]
 
