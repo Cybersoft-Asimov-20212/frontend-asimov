@@ -16,7 +16,7 @@
               <p>Age: {{teacher.age}}</p>
             </v-card-text>
             <v-card-actions>
-              <v-btn text color="indigo accent-4" class="font-weight-bold te">Learn More</v-btn>
+              <v-btn text color="indigo accent-4" class="font-weight-bold te" :to="`/teachers/${teacher.id}`">see more</v-btn>
             </v-card-actions>
           </v-card>
         </div>
@@ -32,12 +32,6 @@ export default {
   name: "teachers",
   data: () => ({
     teachers: [],
-    teacherSelected: {
-      id: '',
-      name: '',
-      lastname: '',
-      age: ''
-    }
   }),
   created() {
     TeachersService.getAll()
@@ -57,16 +51,6 @@ export default {
         lastname: teacher.lastname,
         age: teacher.age
       };
-    },
-    getTeacher(id){
-      TeachersService.getById(id)
-          .then((response) => {
-            this.teacherSelected = response.data;
-            console.log(response.data);
-          })
-          .catch(e => {
-            console.log(e);
-          });
     }
   }
 }
