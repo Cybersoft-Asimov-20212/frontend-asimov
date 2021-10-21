@@ -4,7 +4,7 @@
         <v-app-bar-nav-icon  @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <v-toolbar-title>Asimov</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn depressed rounded class="text-capitalize">Profile<v-icon class="ml-2">mdi-account-circle</v-icon></v-btn>
+        <v-btn depressed rounded class="text-capitalize" to="/profile/2">Profile<v-icon class="ml-2">mdi-account-circle</v-icon></v-btn>
       </v-app-bar>
 
       <v-navigation-drawer v-model="drawer" absolute bottom temporary>
@@ -67,9 +67,7 @@
       </v-navigation-drawer>
 
       <v-main>
-        <v-content>
-        </v-content>
-        <router-view/>
+        <router-view></router-view>
       </v-main>
 
       <v-footer color="grey darken-1" padless align="center">

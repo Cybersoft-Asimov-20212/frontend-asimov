@@ -39,6 +39,11 @@ const routes = [
     path: '/teachers/:id',
     name: 'teacher-detail',
     component: () => import('@/teachers/pages/teacher-detail')
+  },
+  {
+    path: '/profile/:id',
+    name: 'profile',
+    component: () => import('@/profile/pages/profile')
   }
 ]
 
