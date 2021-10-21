@@ -33,7 +33,12 @@ const routes = [
     path: '/teachers/:id',
     name: 'teacher-detail',
     component: () => import('@/teachers/pages/teacher-detail')
-  }
+  },
+  {
+    path: "/top-teachers",
+    name: 'top-teachers',
+    component: () => import(/* webpackChunkName: "about" */ '@/top-teachers/pages/top-teachers')
+  },
 ]
 
 const router = new VueRouter({

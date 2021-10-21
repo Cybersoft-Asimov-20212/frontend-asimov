@@ -40,9 +40,16 @@
 
           <v-list-item link to="/competences">
             <v-list-item-icon>
-              <v-icon>mdi-human-queue</v-icon>
+              <v-icon>mdi-book-check</v-icon>
             </v-list-item-icon>
             <v-list-item-title>Competences</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item link to="/top-teachers">
+            <v-list-item-icon>
+              <v-icon>mdi-podium-gold</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Top Teachers</v-list-item-title>
           </v-list-item>
 
         </v-list>
