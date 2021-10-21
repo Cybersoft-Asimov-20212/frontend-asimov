@@ -21,7 +21,7 @@
               Description: {{course.description}}
             </v-card-text>
             <v-card-actions>
-              <v-btn text color="indigo accent-4" class="font-weight-bold te">see more</v-btn>
+              <v-btn text color="indigo accent-4" class="font-weight-bold te" :to="`/courses/${course.id}`">see more</v-btn>
             </v-card-actions>
           </v-card>
         </div>

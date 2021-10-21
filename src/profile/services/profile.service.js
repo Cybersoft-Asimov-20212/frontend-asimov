@@ -1,6 +1,6 @@
 import http from '@/core/http-common'
-class CoursesService {
-    endpoint = '/courses';
+class ProfileService {
+    endpoint = '/directors';
     getAll(){
         return http.get(this.endpoint);
     }
@@ -10,4 +10,4 @@ class CoursesService {
     }
 }
 
-export default new CoursesService();
+export default new ProfileService();
