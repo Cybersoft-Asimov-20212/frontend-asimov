@@ -38,6 +38,13 @@
             <v-list-item-title>Teachers</v-list-item-title>
           </v-list-item>
 
+          <v-list-item link to="/top-teachers">
+            <v-list-item-icon>
+              <v-icon>mdi-podium-gold</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Top Teachers</v-list-item-title>
+          </v-list-item>
+
           <v-list-item link to="/competences">
             <v-list-item-icon>
               <v-icon>mdi-format-list-bulleted-square</v-icon>
@@ -53,6 +60,7 @@
           </v-list-item-content>
         </v-list-item>
         <v-divider></v-divider>
+
 
         <v-list dense rounded>
           <v-list-item link to="/dashboard">

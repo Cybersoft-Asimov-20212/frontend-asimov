@@ -49,6 +49,11 @@ const routes = [
     path: '/profile/:id',
     name: 'profile',
     component: () => import('@/profile/pages/profile')
+  },
+  {
+    path: "/top-teachers",
+    name: 'top-teachers',
+    component: () => import(/* webpackChunkName: "about" */ '@/top-teachers/pages/top-teachers')
   }
 ]
 
