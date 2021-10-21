@@ -17,6 +17,12 @@
         <v-divider></v-divider>
 
         <v-list dense rounded>
+          <v-list-item link to="/dashboard">
+            <v-list-item-icon>
+              <v-icon>mdi-view-dashboard</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Dashboard</v-list-item-title>
+          </v-list-item>
 
           <v-list-item link to="/announcements">
             <v-list-item-icon>
@@ -49,6 +55,13 @@
         <v-divider></v-divider>
 
         <v-list dense rounded>
+          <v-list-item link to="/dashboard">
+            <v-list-item-icon>
+              <v-icon>mdi-view-dashboard</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Dashboard</v-list-item-title>
+          </v-list-item>
+
           <v-list-item link to="/courses">
             <v-list-item-icon>
               <v-icon>mdi-book-open-page-variant</v-icon>
@@ -67,8 +80,6 @@
       </v-navigation-drawer>
 
       <v-main>
-        <v-content>
-        </v-content>
         <router-view/>
       </v-main>
 
