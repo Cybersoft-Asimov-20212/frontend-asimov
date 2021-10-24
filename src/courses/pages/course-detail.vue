@@ -101,6 +101,7 @@ export default {
   name: "course-detail",
   data: () => ({
     dialog: false,
+    //TODO: cambiar lista de tags: items de courses
     tags: [
       'Work',
       'Home Improvement',

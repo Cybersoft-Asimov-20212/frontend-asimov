@@ -1,13 +1,13 @@
 <template>
     <v-app>
-      <v-app-bar absolute app>
+      <v-app-bar dark absolute app>
         <v-app-bar-nav-icon  @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-        <v-toolbar-title>Asimov</v-toolbar-title>
+        <v-toolbar-title class="font-weight-bold my-auto"><v-icon class="mr-1 py-1">mdi-school</v-icon>Asimov</v-toolbar-title>
         <v-spacer></v-spacer>
         <v-btn depressed rounded class="text-capitalize" to="/profile/2">Profile<v-icon class="ml-2">mdi-account-circle</v-icon></v-btn>
       </v-app-bar>
 
-      <v-navigation-drawer v-model="drawer" absolute bottom temporary>
+      <v-navigation-drawer v-model="drawer" dark absolute bottom temporary>
         <v-list-item align="center">
           <v-list-item-content>
             <v-list-item-title class="font-weight-bold">Side-Menu-Director</v-list-item-title>
@@ -91,29 +91,29 @@
         <router-view/>
       </v-main>
 
-      <v-footer color="grey darken-1" padless align="center">
+      <v-footer dark padless align="center">
+        <v-card-title  class="mx-auto my-0">
+          <p class="subheading my-auto pr-10">Hi we are CyberSoft!</p>
 
-        <v-card-text class="pa-3">
-          <v-btn class="mx-4 white--text" icon>
+          <v-spacer></v-spacer>
+          <v-btn class="mx-2 white--text" href="https://www.facebook.com/" target="_blank" icon>
             <v-icon size="24px">
               mdi-facebook
             </v-icon>
           </v-btn>
-          <v-btn class="mx-4 white--text" icon>
+          <v-btn class="mx-2 white--text" href="https://www.instagram.com/" target="_blank" icon>
             <v-icon size="24px">
               mdi-instagram
             </v-icon>
           </v-btn>
-          <v-btn class="mx-4 white--text" icon>
+          <v-btn class="mx-2 white--text" href="https://www.twitter.com/" target="_blank" icon>
             <v-icon size="24px">
               mdi-twitter
             </v-icon>
           </v-btn>
-        </v-card-text>
+        </v-card-title>
 
-        <v-card-text class="white--text pt-0">Hi we are Cybersoft!</v-card-text>
-
-        <v-card-text class="white--text pt-0">
+        <v-card-text class="white--text pt-0 pb-2">
           2021 — <strong>Vuetify</strong>
         </v-card-text>
       </v-footer>
@@ -138,22 +138,9 @@ export default {
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
 </style>

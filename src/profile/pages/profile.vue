@@ -1,30 +1,51 @@
 <template>
   <div class="profile ma-10">
-    <h1>Profile</h1>
-    <v-card class="ma-5">
+    <h1 class="pl-5">Profile</h1>
+    <v-card class="mx-5 mt-3">
       <div class="indigo accent-4">
-        <v-card-title class="white--text">Hello! {{director.name}}</v-card-title>
+        <v-card-title class="white--text font-weight-bold">Hello! {{director.name}}</v-card-title>
       </div>
       <v-row>
-        <v-col cols="2">
-          <v-col><v-avatar size="150" color="grey"></v-avatar></v-col>
-          <v-col><v-btn color="primary">change photo</v-btn></v-col>
+        <v-col cols="2" class="px-8 pt-8">
+          <div class="pa-3">
+            <v-sheet height="150" width="150" color="grey" class="rounded-circle"></v-sheet>
+          </div>
         </v-col>
         <v-col cols="10">
           <v-card-text>
-            <p class="text-h4 text--primary">Personal Information:</p>
-            <div class="text--primary">
+            <h1 class="text--primary">Personal Information:</h1>
+            <div class="text--primary pt-2">
               Name: {{director.name}}<br>
               Last Name: {{director.lastname}}<br>
               Age: {{director.age}}<br>
               Phone: {{director.phone}}<br>
               Email: {{director.email}}<br>
             </div>
-            <br>
-            <v-btn color="primary">Edit</v-btn>
+            <div class="pt-2">
+              <v-btn rounded outlined color="indigo accent-4">Edit</v-btn>
+            </div>
           </v-card-text>
         </v-col>
       </v-row>
+    </v-card>
+    <h1 class="pl-5 pt-10">Points</h1>
+    <v-card class="mx-5 mt-3">
+      <v-container>
+        <v-row>
+          <div class="d-flex justify-start align-center ml-5 mr-3">
+            <v-icon>mdi-check-bold</v-icon>
+          </div>
+          <v-col>
+            <div>You</div>
+            <p class="text--primary font-weight-bold mb-1">Points earned</p>
+          </v-col>
+          <v-col class="d-flex justify-center align-center">
+            <v-chip outlined rounded color="green darken-1" class="font-weight-bold">
+              1250 Points
+            </v-chip>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-card>
   </div>
 </template>
