@@ -112,28 +112,23 @@
   "announcements": [
     {
       "id": 1,
-      "title": "Lorem ipsum",
-      "description": "Lorem ipsum"
+      "title": "Important notice of the classes",
+      "description": "The classes are held in virtual method due to the present pandemic, Greetings, I hope you are well"
     },
     {
       "id": 2,
-      "title": "Lorem ipsum",
-      "description": "Lorem ipsum"
+      "title": "Weekly meeting",
+      "description": "We meet to talk about different topics, among them we want to know what is the performance of the virtual classes"
     },
     {
       "id": 3,
-      "title": "Lorem ipsum",
-      "description": "Lorem ipsum"
+      "title": "Communicate for parents",
+      "description": "Communicate to the parents of the students that the classes for tomorrow will take place in person"
     },
     {
       "id": 4,
-      "title": "Lorem ipsum",
-      "description": "Lorem ipsum"
-    },
-    {
-      "id": "44bfc961-d667-46dd-b0ab-8ddf7098cef5",
-      "title": "Titulo de prueba",
-      "description": "Comunicado explicito!"
+      "title": "Change of holidays",
+      "description": "There will be no holidays for next month."
     }
   ],
   "courses": [
