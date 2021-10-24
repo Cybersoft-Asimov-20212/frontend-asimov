@@ -1,115 +1,91 @@
 <template>
   <div class="teacher-detail">
-    <v-container>
+    <v-container class="pt-6">
       <v-row>
-        <v-col cols="12" md="12"><v-spacer></v-spacer></v-col>
-        <v-col cols="12" sm="6" md="8">
-          <h1 class="font-weight-bold">Teacher's information</h1>
-          <v-col cols="12" md="12"><v-spacer></v-spacer></v-col>
-          <v-card class="mx-auto" max-width="1010">
-            <v-card-title class="text-h5 mb-1 teacher-profile-name font-weight-bold white--text">
-              Teacher : {{teacher.name}} {{teacher.lastname}}
+        <v-col cols="8">
+          <h1 class="font-weight-bold pb-3">Teacher information</h1>
+          <v-card class="mx-auto" max-height="200" min-height="150">
+            <v-card-title class="mb-1 indigo accent-4 font-weight-bold white--text">
+              {{teacher.name}} {{teacher.lastname}}
             </v-card-title>
-            <v-list-item three-line>
-              <v-list-item-avatar tile size="80" color="grey"></v-list-item-avatar>
-              <v-list-item-content>
-                <v-list-item-content>
-                  Personal information:<br>
-                  Name(s): {{teacher.name}}<br>
-                  Last name: {{teacher.lastname}}<br>
-                  age: {{teacher.age}} <br>
-                </v-list-item-content>
-              </v-list-item-content>
-
-
-            </v-list-item>
+            <v-card-text class="text--primary mt-3">
+              <p class="text-justify mb-0">
+                <strong>Personal information:</strong><br>
+                Name(s): {{teacher.name}}<br>
+                Last name: {{teacher.lastname}}<br>
+                Age: {{teacher.age}} <br></p>
+            </v-card-text>
           </v-card>
         </v-col>
 
-        <v-col cols="6" md="4">
-          <v-container class="ml-3">
-            <h5 class="font-weight-bold mb-3">Teacher progress</h5>
+        <v-col cols="4" class="pl-15">
+          <h1 class="font-weight-bold pb-3">Teacher progress</h1>
+          <v-card class="mx-auto pa-5" min-height="150">
             <p class="display-3 font-weight-bold">25%</p>
-          </v-container>
+              <v-progress-linear
+                  class="rounded-pill"
+                  color="indigo accent-4"
+                  height="25"
+                  value="25"
+                  striped
+              ></v-progress-linear>
+          </v-card>
         </v-col>
       </v-row>
-      <v-row>
 
+      <v-row class="pt-4">
         <v-col cols="8">
-          <v-container>
-            <h5 class="unit-bar-title">Point for progress</h5>
-            <v-card class="mx-auto mt-1 mb-5">
-              <v-list-item>
-                <figure class="mr-4">
-                  <v-icon large color="black">mdi-chart-box</v-icon>
-                </figure>
-
-                <v-list-item-content class="unit-bar-text">
-                  <h4>Sum of points</h4>
-                  <p>Total points</p>
-                </v-list-item-content>
-
-                <v-spacer></v-spacer>
-                <p class="unit-bar-value">985 points</p>
-              </v-list-item>
-
-            </v-card>
-
-            <h5 class="unit-bar-title">Units in progress and completed</h5>
-            <v-card class="mx-auto mt-3 mb-2">
-              <v-list-item>
-                <figure class="mr-4">
-                  <v-icon large color="black">mdi-file-document</v-icon>
-                </figure>
-
-                <v-list-item-content class="unit-bar-text">
-                  <h4>(Unit 01)</h4>
-                  <p>Unit description</p>
-                </v-list-item-content>
-
-                <v-spacer></v-spacer>
-                <p class="unit-bar-value">95%</p>
-              </v-list-item>
-            </v-card>
-
-            <v-card class="mx-auto mt-2 mb-2">
-              <v-list-item>
-                <figure class="mr-4">
-                  <v-icon large color="black">mdi-file-document</v-icon>
-                </figure>
-
-                <v-list-item-content class="unit-bar-text">
-                  <h4>(Unit 02)</h4>
-                  <p>Unit description</p>
-                </v-list-item-content>
-
-                <v-spacer></v-spacer>
-                <p class="unit-bar-value">Pending</p>
-              </v-list-item>
-            </v-card>
-
-          </v-container>
-
+          <h1 class="font-weight-bold pb-3">Point for progress</h1>
+          <v-card class="mx-auto mb-3">
+            <v-container>
+              <v-row>
+                <div class="d-flex justify-start align-center ml-5 mr-3">
+                  <v-icon>mdi-check-bold</v-icon>
+                </div>
+                <v-col>
+                  <div>You</div>
+                  <p class="text--primary font-weight-bold mb-1">Points earned</p>
+                </v-col>
+                <v-col class="d-flex justify-center align-center">
+                  <v-chip outlined rounded color="green darken-1" class="font-weight-bold">
+                       1250 Points
+                  </v-chip>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-card>
+          <h1 class="font-weight-bold py-3">Courses in progress and completed</h1>
+          <v-card v-for="unit in units" :key="unit" class="mx-auto mb-3">
+            <v-container>
+              <v-row>
+                <div class="d-flex justify-start align-center ml-5 mr-3">
+                  <v-icon>mdi-file-document-outline</v-icon>
+                </div>
+                <v-col>
+                  <div>Course</div>
+                  <p class="text--primary font-weight-bold mb-1">{{ unit }}</p>
+                  <div class="text--secondary">Lorem ipsum sit amet</div>
+                </v-col>
+                <v-col class="d-flex justify-center align-center">
+                  <v-btn outlined rounded color="indigo accent-4" class="font-weight-bold" v-bind="attrs" v-on="on">
+                    Learn More
+                  </v-btn>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-card>
         </v-col>
-        <v-col cols="4">
-          <v-card class="mx-auto" max-width="220">
-            <v-card-title class="justify-center white--text title-competences">
-              <h4>Competences</h4>
-            </v-card-title>
-            <v-card-actions>
-              <v-list-item>
-                <v-list-item-content>
-                  <v-btn rounded x-small class="white--text mt-1 mb-1" color="black accent-4">Competence 1</v-btn>
-                  <v-btn rounded x-small class="white--text mt-1 mb-1" color="black accent-4">Competence 2</v-btn>
-                  <v-btn rounded x-small class="white--text mt-1 mb-1" color="black accent-4">Competence 3</v-btn>
-                  <v-btn rounded x-small class="white--text mt-1 mb-1" color="black accent-4">Competence 4</v-btn>
-                  <v-btn rounded x-small class="white--text mt-1 mb-1" color="black accent-4">Competence 5</v-btn>
-                  <v-btn rounded x-small class="white--text mt-1 mb-1" color="black accent-4">Competence 6</v-btn>
-                  <v-btn rounded x-small class="white--text mt-1 mb-1" color="black accent-4">Competence 7</v-btn>
-                  <v-btn rounded x-small class="white--text mt-1 mb-1" color="black accent-4">Competence 8</v-btn>
-                </v-list-item-content>
-              </v-list-item>
-            </v-card-actions>
+
+        <v-col cols="4" class="pl-15">
+          <h1 class="font-weight-bold pb-3">Competences includes</h1>
+          <v-card class="d-flex mx-auto px-5 align-center" min-height="150">
+            <div>
+              <v-chip-group class="py-3" column>
+                <v-chip outlined v-for="competence in competences" :key="competence">
+                  {{ competence }}
+                </v-chip>
+              </v-chip-group>
+            </div>
           </v-card>
         </v-col>
       </v-row>
@@ -128,7 +104,21 @@ export default {
       name: '',
       lastname: '',
       age: ''
-    }
+    },
+    units: [
+      'Literature',
+      'Arithmetic',
+      'History',
+    ],
+    competences: [
+      'Mathematical Reasoning',
+      'Assertiveness',
+      'Critical thinking',
+      'Grammar',
+      'Mathematical design',
+      'Creativity',
+      'Logic',
+    ],
   }),
   created() {
     TeachersService.getById(this.$route.params.id)
@@ -144,29 +134,5 @@ export default {
 </script>
 
 <style scoped>
-v-container {
-  background-color: #ECEBE9;
-}
 
-/* Teacher's profile */
-.teacher-profile-name {
-  background-color: #2C53C9;
-}
-
-
-/* Unity bars*/
-.unit-bar-title {
-  font-weight: bold;
-}
-.unit-bar-text {
-  font-size: 14px;
-}
-.unit-bar-value {
-  font-weight: bold;
-}
-
-/* Competences Card */
-.title-competences {
-  background-color: #2C53C9;
-}
 </style>

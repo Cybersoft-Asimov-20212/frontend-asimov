@@ -1,8 +1,8 @@
 <template>
   <div class="teachers">
-    <v-row>
+    <v-row class="pt-4">
       <v-col cols="12">
-        <h1 class="mx-8">Teachers</h1>
+        <h1 class="pl-11">Teachers</h1>
       </v-col>
     </v-row>
     <v-row>
@@ -11,7 +11,7 @@
           <v-card v-for="teacher in teachers" :key="teacher.id" class="pb-2 ma-3" width="345" max-height="350">
             <v-card-text>
               <div>Teacher</div>
-              <p id="nomTeacher" class="text-h4 text--primary">{{teacher.name}}</p>
+              <h1 class="text--primary font-weight-bold py-3">{{teacher.name}}</h1>
               <div>{{ teacher.lastname }}</div>
               <p>Age: {{teacher.age}}</p>
             </v-card-text>
