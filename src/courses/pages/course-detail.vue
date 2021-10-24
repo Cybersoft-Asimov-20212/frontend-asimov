@@ -1,11 +1,11 @@
 <template>
   <div class="course-detail">
     <v-container>
-      <v-row>
+      <v-row class="pt-4">
         <v-col cols="8">
           <h1 class="font-weight-bold pb-3">Course information</h1>
           <v-card class="mx-auto" max-height="170" min-height="150">
-            <v-card-title class="text-h5 mb-1 indigo accent-4 font-weight-bold white--text">
+            <v-card-title class="mb-1 indigo accent-4 font-weight-bold white--text">
               {{course.name}}
             </v-card-title>
             <v-card-text class="text--primary mt-3">
@@ -33,44 +33,40 @@
       <v-row class="pt-4">
         <v-col cols="8">
           <h1 class="font-weight-bold pb-3">Course Items</h1>
-          <v-card v-for="tag in tags" :key="tag" class="mx-auto mb-3">
+
+          <v-dialog v-model="dialog"  width="720">
+            <v-card>
+              <v-card-title class="grey lighten-2">
+                Privacy Policy
+              </v-card-title>
+              <v-divider></v-divider>
+              <div class="d-flex justify-center align-center py-3">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/LwCRRUa8yTU"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+              </div>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn text color="indigo accent-4" class="font-weight-bold" @click="dialog = false">
+                  I accept
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+
+          <v-card v-for="competence in competences" :key="competence" class="mx-auto mb-3">
             <v-container>
               <v-row>
                 <v-col>
                   <div>Item</div>
-                  <p class="text--primary font-weight-bold mb-1">{{ tag }}</p>
+                  <p class="text--primary font-weight-bold mb-1">{{ competence }}</p>
                   <div class="text--secondary">Well meaning and kindly."a benevolent smile"</div>
                 </v-col>
                 <v-col class="d-flex justify-center align-center">
-                  <v-dialog v-model="dialog" width="500" :retain-focus="false">
-                    <template v-slot:activator="{ on, attrs }">
-                      <v-btn outlined rounded color="indigo accent-4" class="font-weight-bold" v-bind="attrs" v-on="on">
-                        Learn More
-                      </v-btn>
-                    </template>
-
-                    <v-card>
-                      <v-card-title class="text-h5 grey lighten-2">
-                        Privacy Policy
-                      </v-card-title>
-
-                      <v-card-text>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                      </v-card-text>
-
-                      <iframe width="560" height="315" src="https://www.youtube.com/embed/CDV2AwOeeis" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-                      <v-divider></v-divider>
-
-                      <v-card-actions>
-                        <v-spacer></v-spacer>
-                        <v-btn color="primary" text @click="dialog = false">
-                          I accept
-                        </v-btn>
-                      </v-card-actions>
-                    </v-card>
-                  </v-dialog>
-
+                  <v-btn outlined rounded color="indigo accent-4" class="font-weight-bold" @click.stop="dialog=true">
+                    Learn More
+                  </v-btn>
                 </v-col>
               </v-row>
             </v-container>
@@ -82,8 +78,8 @@
           <v-card class="d-flex mx-auto px-5 align-center" min-height="150">
             <div>
               <v-chip-group class="py-3" column>
-                <v-chip outlined v-for="tag in tags" :key="tag">
-                  {{ tag }}
+                <v-chip outlined v-for="competence in competences" :key="competence">
+                  {{ competence }}
                 </v-chip>
               </v-chip-group>
             </div>
@@ -102,16 +98,14 @@ export default {
   data: () => ({
     dialog: false,
     //TODO: cambiar lista de tags: items de courses
-    tags: [
-      'Work',
-      'Home Improvement',
-      'Vacation',
-      'Food',
-      'Drawers',
-      'Shopping',
-      'Art',
-      'Tech',
-      'Creative Writing',
+    competences: [
+      'Mathematical Reasoning',
+      'Assertiveness',
+      'Critical thinking',
+      'Grammar',
+      'Mathematical design',
+      'Creativity',
+      'Logic',
     ],
     course: {
       id: '',
@@ -133,29 +127,5 @@ export default {
 </script>
 
 <style scoped>
-v-container {
-  background-color: #ECEBE9;
-}
 
-/* Teacher's profile */
-.teacher-profile-name {
-  background-color: #2C53C9;
-}
-
-
-/* Unity bars*/
-.unit-bar-title {
-  font-weight: bold;
-}
-.unit-bar-text {
-  font-size: 14px;
-}
-.unit-bar-value {
-  font-weight: bold;
-}
-
-/* Competences Card */
-.title-competences {
-  background-color: #2C53C9;
-}
 </style>
