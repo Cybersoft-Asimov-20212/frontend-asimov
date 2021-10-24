@@ -1,12 +1,12 @@
 <template>
   <div class="competences">
-    <v-row>
-      <v-col cols="12">
+    <v-row class="pt-4">
+      <v-col cols="12" class="pb-0">
         <h1 class="pl-5">Competences</h1>
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="12">
+      <v-col cols="12" class="pt-1">
         <div class="d-flex flex-column justify-center mb-8">
           <v-card v-for="competence in competences" :key="competence.id" class="pb-2 ma-3" max-height="450">
             <div class="indigo accent-3">
@@ -18,7 +18,7 @@
               </v-card-title>
             </div>
             <v-card-text class="text-justify pb-1 text--secondary">
-              Concept: {{competence.concept}}
+              <strong>Concept: </strong>{{competence.concept}}
             </v-card-text>
           </v-card>
         </div>
