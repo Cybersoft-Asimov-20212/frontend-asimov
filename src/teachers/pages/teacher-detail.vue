@@ -43,7 +43,7 @@
                   <v-icon>mdi-check-bold</v-icon>
                 </div>
                 <v-col>
-                  <div>You</div>
+                  <div>This teacher</div>
                   <p class="text--primary font-weight-bold mb-1">Points earned</p>
                 </v-col>
                 <v-col class="d-flex justify-center align-center">
