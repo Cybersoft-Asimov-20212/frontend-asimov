@@ -1,13 +1,13 @@
 <template>
   <v-container>
-    <p class="font-weight-bold">TOP de profesores</p>
+    <h1 class="font-weight-bold py-4">TOP Teachers</h1>
     <v-card class="mx-auto">
-      <v-card-title class="text-h4 mb-1 pa-7 teacher-profile-name font-weight-bold white--text">
-        Profesor TOP: Anna Garcia
-      </v-card-title>
+      <h1 class="mb-1 pa-7 font-weight-bold white--text indigo accent-4">
+        Teacher TOP: Anna Garcia
+      </h1>
       <v-container>
         <v-row>
-          <v-col cols="2">
+          <v-col cols="2" class="pl-10">
             <v-img
                 src="https://images.pexels.com/photos/5905483/pexels-photo-5905483.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
                 height="130px"
@@ -17,22 +17,21 @@
           </v-col>
 
           <v-col cols="10">
-            <div>Progreso actual</div>
-
-            <div>
-              <v-row>
-                <v-col cols="1">
-                  <p class="font-weight-bold text-h5">45%</p>
+            <div>Actual progress</div>
+            <div class="pb-4 pt-2">
+              <v-row class="d-flex justify-center align-center">
+                <v-col cols="1" class="pr-0">
+                  <p class="font-weight-bold my-0">45%</p>
                 </v-col>
-                <v-col cols="11">
-                  <v-progress-linear value="45" height="15" rounded></v-progress-linear>
+                <v-col cols="11" class="pl-0">
+                  <v-progress-linear value="45" height="15" class="rounded-pill" color="indigo accent-4" striped></v-progress-linear>
                 </v-col>
               </v-row>
             </div>
 
-            <div>Puntaje actual</div>
-            <div class="font-weight-bold text-h5">
-              2150 puntos
+            <div>Actual points</div>
+            <div class="font-weight-bold">
+              <h3>2150 points</h3>
             </div>
           </v-col>
         </v-row>
@@ -42,19 +41,19 @@
 
     <v-container class="mt-5"></v-container>
 
-    <p class="font-weight-bold">Puntos obtenidos por progreso</p>
+    <h2 class="font-weight-bold">Score of the other teachers</h2>
     <v-card v-for="topTeacher in topTeachers" :key="topTeacher.id" class="mx-auto mt-5 mb-5">
       <v-list-item>
         <figure class="mr-4">
           <v-icon>mdi-clipboard-outline</v-icon>
         </figure>
 
-        <v-list-item-content>
-          <p id="nomTeacher" class="text--primary font-weight-bold">Profesor: {{topTeacher.name}}</p>
-          <p>Puntaje obtenido:</p>
+        <v-list-item-content class="mt-3">
+          <p class="text--primary"> <strong> Teacher:</strong> {{topTeacher.name}}</p>
+          <p>Score obtained</p>
         </v-list-item-content>
         <v-spacer></v-spacer>
-        <p class="text-h5 font-weight-bold">1080 Pts.</p>
+        <h2 class="font-weight-bold">1080 Pts.</h2>
       </v-list-item>
     </v-card>
   </v-container>
