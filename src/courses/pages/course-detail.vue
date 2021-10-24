@@ -34,12 +34,13 @@
         <v-col cols="8">
           <h1 class="font-weight-bold pb-3">Course Items</h1>
 
-          <v-dialog v-model="dialog"  width="720">
+          <v-dialog v-if="dialog" v-model=itemSelect width="720">
             <v-card>
               <v-card-title class="grey lighten-2">
-                Privacy Policy
+                {{ itemSelect.name }}
               </v-card-title>
               <v-divider></v-divider>
+              <!--TODO: Change dialog content by item type-->
               <div class="d-flex justify-center align-center py-3">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/LwCRRUa8yTU"
                         title="YouTube video player" frameborder="0"
@@ -55,17 +56,17 @@
             </v-card>
           </v-dialog>
 
-          <v-card v-for="competence in competences" :key="competence" class="mx-auto mb-3">
+          <v-card v-for="item in items" :key="item" class="mx-auto mb-3">
             <v-container>
               <v-row>
                 <v-col>
                   <div>Item</div>
-                  <p class="text--primary font-weight-bold mb-1">{{ competence }}</p>
-                  <div class="text--secondary">Well meaning and kindly."a benevolent smile"</div>
+                  <p class="text--primary font-weight-bold mb-1">{{ item.name }}</p>
+                  <div class="text--secondary">{{ item.description }}</div>
                 </v-col>
                 <v-col class="d-flex justify-center align-center">
-                  <v-btn outlined rounded color="indigo accent-4" class="font-weight-bold" @click.stop="dialog=true">
-                    Learn More
+                  <v-btn outlined rounded color="indigo accent-4" class="font-weight-bold" @click.stop="prueba(item)">
+                    {{ item.name }}
                   </v-btn>
                 </v-col>
               </v-row>
@@ -92,12 +93,13 @@
 
 <script>
 import CoursesService from '../services/courses.service'
+import ItemsService from '../services/items.service'
 
 export default {
   name: "course-detail",
   data: () => ({
     dialog: false,
-    //TODO: cambiar lista de tags: items de courses
+    items: [ ],
     competences: [
       'Mathematical Reasoning',
       'Assertiveness',
@@ -107,22 +109,61 @@ export default {
       'Creativity',
       'Logic',
     ],
+    id: '',
+    name: '',
+    description: '',
+    idCourse: '',
     course: {
       id: '',
       name: '',
       description: ''
+    },
+    itemSelect: {
+      id: '',
+      name: '',
+      description: '',
+      idCourse: '',
     }
   }),
   created() {
-    CoursesService.getById(this.$route.params.id)
-        .then((response) => {
-          this.course = response.data;
-          console.log(response.data);
-        })
-        .catch(e => {
-          console.log(e);
-        });
+    this.SelectCourse();
+    this.refreshList();
   },
+  methods: {
+    SelectCourse(){
+      CoursesService.getById(this.$route.params.id)
+          .then((response) => {
+            this.course = response.data;
+            console.log(response.data);
+          })
+          .catch(e => {
+            console.log(e);
+          });
+    },
+    refreshList(){
+      ItemsService.getByIdCourse(this.$route.params.id)
+          .then((response) => {
+            this.items = response.data.map(this.getDisplayItem);
+            console.log(response.data);
+          })
+          .catch(e => {
+            console.log(e);
+          });
+    },
+    getDisplayItem(item){
+      return {
+        id: item.id,
+        name: item.name,
+        description: item.description,
+        idCourse: item.idCourse,
+      };
+    },
+    prueba(data){
+      this.itemSelect = data,
+      this.dialog=true
+    }
+
+  }
 }
 </script>
 
