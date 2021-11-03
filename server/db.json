@@ -4,109 +4,163 @@
       "id": 1,
       "name": "Sofia",
       "lastname": "Gomez Perez",
-      "age": "30"
+      "age": "30",
+      "email": "sofia.gomez@gmail.com",
+      "phone": "987654321",
+      "idDirector": 1
     },
     {
       "id": 2,
       "name": "Juan",
       "lastname": "Garcia Morales",
-      "age": "25"
+      "age": "25",
+      "email": "juan.garcia@gmail.com",
+      "phone": "987654321",
+      "idDirector": 1
     },
     {
       "id": 3,
       "name": "Manuel",
       "lastname": "Aquino Serpa",
-      "age": "36"
+      "age": "36",
+      "email": "manuel.aquino@gmail.com",
+      "phone": "987654321",
+      "idDirector": 1
     },
     {
       "id": 4,
       "name": "Luis",
       "lastname": "Quispe Flores",
-      "age": "47"
+      "age": "47",
+      "email": "luis.quispe@gmail.com",
+      "phone": "987654321",
+      "idDirector": 1
     },
     {
       "id": 5,
       "name": "Marco",
       "lastname": "Sánchez Rodríguez",
-      "age": "27"
+      "age": "27",
+      "email": "marco.sanchez@gmail.com",
+      "phone": "987654321",
+      "idDirector": 1
     },
     {
       "id": 6,
       "name": "Jose",
       "lastname": "Mamani Mendoza",
-      "age": "39"
+      "age": "39",
+      "email": "jose.mamani@gmail.com",
+      "phone": "987654321",
+      "idDirector": 1
     },
     {
       "id": 7,
       "name": "Julio",
       "lastname": "Torres Ramírez",
-      "age": "27"
+      "age": "27",
+      "email": "julio.torres@gmail.com",
+      "phone": "987654321",
+      "idDirector": 1
     },
     {
       "id": 8,
       "name": "Yordy",
       "lastname": "Ruiz Perez",
-      "age": "40"
+      "age": "40",
+      "email": "yordy.ruiz@gmail.com",
+      "phone": "987654321",
+      "idDirector": 1
     },
     {
       "id": 9,
       "name": "Andre",
       "lastname": "Gomez Perez",
-      "age": "30"
+      "age": "30",
+      "email": "andre.gomez@gmail.com",
+      "phone": "987654321",
+      "idDirector": 1
     },
     {
       "id": 10,
       "name": "Omar",
       "lastname": "Gomez Perez",
-      "age": "19"
+      "age": "19",
+      "email": "omar.gomez@gmail.com",
+      "phone": "987654321",
+      "idDirector": 1
     },
     {
       "id": 11,
       "name": "Ernesto",
-      "lastname": "Gomez Perez",
-      "age": "29"
+      "lastname": "Valenzuela Perez",
+      "age": "29",
+      "email": "ernesto.valenzuela@gmail.com",
+      "phone": "987654321",
+      "idDirector": 1
     },
     {
       "id": 12,
       "name": "Camila",
-      "lastname": "Gomez Perez",
-      "age": "43"
+      "lastname": "Valverde Perez",
+      "age": "43",
+      "email": "camila.valverde@gmail.com",
+      "phone": "987654321",
+      "idDirector": 1
     },
     {
       "id": 13,
       "name": "Hidalg",
       "lastname": "Gomez Perez",
-      "age": "34"
+      "age": "34",
+      "email": "hidalg.gomez@gmail.com",
+      "phone": "987654321",
+      "idDirector": 1
     },
     {
       "id": 14,
       "name": "Pauloo",
       "lastname": "Gomez Perez",
-      "age": "24"
+      "age": "24",
+      "email": "pauloo.gomez@gmail.com",
+      "phone": "987654321",
+      "idDirector": 1
     },
     {
       "id": 15,
       "name": "Irvinn",
-      "lastname": "Gomez Perez",
-      "age": "34"
+      "lastname": "Sotomayor Perez",
+      "age": "34",
+      "email": "irvinn.sotomayor@gmail.com",
+      "phone": "987654321",
+      "idDirector": 1
     },
     {
       "id": 16,
       "name": "Ramoss",
-      "lastname": "Gomez Perez",
-      "age": "21"
+      "lastname": "Paredes Perez",
+      "age": "21",
+      "email": "ramoss.paredes@gmail.com",
+      "phone": "987654321",
+      "idDirector": 1
     },
     {
       "id": 17,
       "name": "Timmyy",
       "lastname": "Gomez Perez",
-      "age": "22"
+      "age": "22",
+      "email": "timmyy.gomez@gmail.com",
+      "phone": "987654321",
+      "idDirector": 1
     },
     {
       "id": 18,
       "name": "Ernest",
       "lastname": "Gomez Perez",
-      "age": "34"
+      "age": "34",
+      "email": "ernest.gomez@gmail.com",
+      "phone": "987654321",
+      "idDirector": 1
     }
   ],
   "announcements": [
