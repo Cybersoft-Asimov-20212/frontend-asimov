@@ -4,7 +4,7 @@
       <v-row>
         <v-col cols="8">
           <h1 class="font-weight-bold pb-3">Teacher information</h1>
-          <v-card class="mx-auto" max-height="200" min-height="150">
+          <v-card class="mx-auto" max-height="230" min-height="150">
             <v-card-title class="mb-1 indigo accent-4 font-weight-bold white--text">
               {{teacher.name}} {{teacher.lastname}}
             </v-card-title>
@@ -13,7 +13,10 @@
                 <strong>Personal information:</strong><br>
                 Name(s): {{teacher.name}}<br>
                 Last name: {{teacher.lastname}}<br>
-                Age: {{teacher.age}} <br></p>
+                Age: {{teacher.age}} <br>
+                Email: {{teacher.email}}<br>
+                Phone: {{teacher.phone}}<br>
+              </p>
             </v-card-text>
           </v-card>
         </v-col>
@@ -21,12 +24,12 @@
         <v-col cols="4" class="pl-15">
           <h1 class="font-weight-bold pb-3">Teacher progress</h1>
           <v-card class="mx-auto pa-5" min-height="150">
-            <p class="display-3 font-weight-bold">25%</p>
+            <p class="display-3 font-weight-bold">{{ this.value }}%</p>
               <v-progress-linear
                   class="rounded-pill"
                   color="indigo accent-4"
                   height="25"
-                  value="25"
+                  v-bind:value="this.value"
                   striped
               ></v-progress-linear>
           </v-card>
@@ -55,7 +58,7 @@
             </v-container>
           </v-card>
           <h1 class="font-weight-bold py-3">Courses in progress and completed</h1>
-          <v-card v-for="unit in units" :key="unit" class="mx-auto mb-3">
+          <v-card v-for="course in courses" :key="course" class="mx-auto mb-3">
             <v-container>
               <v-row>
                 <div class="d-flex justify-start align-center ml-5 mr-3">
@@ -63,7 +66,7 @@
                 </div>
                 <v-col>
                   <div>Course</div>
-                  <p class="text--primary font-weight-bold mb-1">{{ unit }}</p>
+                  <p class="text--primary font-weight-bold mb-1">{{ course }}</p>
                   <div class="text--secondary">Lorem ipsum sit amet</div>
                 </v-col>
                 <v-col class="d-flex justify-center align-center">
@@ -99,13 +102,17 @@ import TeachersService from '../services/teachers.service'
 export default {
   name: "teacher-detail",
   data: () => ({
+    value: 35,
     teacher: {
       id: '',
       name: '',
       lastname: '',
-      age: ''
+      age: '',
+      email:'',
+      phone:'',
+      idDirector: ''
     },
-    units: [
+    courses: [
       'Literature',
       'Arithmetic',
       'History',
@@ -129,7 +136,7 @@ export default {
         .catch(e => {
           console.log(e);
         });
-  },
+  }
 }
 </script>
 

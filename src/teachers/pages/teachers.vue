@@ -13,7 +13,8 @@
               <div>Teacher</div>
               <h1 class="text--primary font-weight-bold py-3">{{teacher.name}}</h1>
               <div>{{ teacher.lastname }}</div>
-              <p>Age: {{teacher.age}}</p>
+              <div>{{teacher.email}}</div>
+              <div>{{teacher.phone}}</div>
             </v-card-text>
             <v-card-actions>
               <v-btn text color="indigo accent-4" class="font-weight-bold te" :to="`/teachers/${teacher.id}`">see more</v-btn>
@@ -49,7 +50,10 @@ export default {
         id: teacher.id,
         name: teacher.name,
         lastname: teacher.lastname,
-        age: teacher.age
+        age: teacher.age,
+        email: teacher.email,
+        phone: teacher.phone,
+        idDirector: teacher.idDirector
       };
     }
   }
