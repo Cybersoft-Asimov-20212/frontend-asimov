@@ -18,12 +18,12 @@
         <v-col cols="4" class="pl-15">
           <h1 class="font-weight-bold pb-3">Course progress</h1>
           <v-card class="mx-auto pa-5" min-height="150">
-            <p class="display-3 font-weight-bold">25%</p>
+            <p class="display-3 font-weight-bold">{{ this.valueBarProgress }} %</p>
               <v-progress-linear
                   class="rounded-pill"
                   color="indigo accent-4"
                   height="25"
-                  value="25"
+                  v-bind:value="this.valueBarProgress"
                   striped
               ></v-progress-linear>
           </v-card>
@@ -52,7 +52,7 @@
               </p>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn text color="indigo accent-4" class="font-weight-bold" @click="dialog = false">
+                <v-btn text color="indigo accent-4" class="font-weight-bold" @click="changeState(itemSelect.id)">
                   Completed
                 </v-btn>
               </v-card-actions>
@@ -68,7 +68,7 @@
                   <div class="text--secondary  text-truncate" style="max-width: 450px;">{{ item.description }}</div>
                 </v-col>
                 <v-col class="d-flex justify-center align-center">
-                  <v-btn outlined rounded color="indigo accent-4" class="font-weight-bold" @click.stop="prueba(item)">
+                  <v-btn outlined rounded color="indigo accent-4" class="font-weight-bold" @click.stop="openDialog(item)">
                     {{ item.name }}
                   </v-btn>
                 </v-col>
@@ -103,6 +103,7 @@ export default {
   data: () => ({
     dialog: false,
     items: [ ],
+    valueBarProgress: 0,
     competences: [
       'Mathematical Reasoning',
       'Assertiveness',
@@ -125,12 +126,16 @@ export default {
       id: '',
       name: '',
       description: '',
+      state: '',
       idCourse: '',
     }
   }),
   created() {
     this.SelectCourse();
     this.refreshList();
+  },
+  updated() {
+    this.changeValueProgress();
   },
   methods: {
     SelectCourse(){
@@ -158,14 +163,30 @@ export default {
         id: item.id,
         name: item.name,
         description: item.description,
+        state: item.state,
         idCourse: item.idCourse,
       };
     },
-    prueba(data){
+    openDialog(data){
       this.itemSelect = data,
       this.dialog=true
+    },
+    changeState(id){
+      this.itemSelect.state = true,
+      ItemsService.update(id, this.itemSelect),
+      console.log("Change state", this.itemSelect.id),
+      this.dialog=false
+    },
+    changeValueProgress(){
+      let countComplete = 0;
+      let total = this.items.length;
+      for (let i = 0; i < this.items.length; i++) {
+        if(this.items[i].state == true){
+          countComplete = countComplete + 1;
+        }
+      }
+      this.valueBarProgress = (countComplete/total)*100;
     }
-
   }
 }
 </script>
