@@ -252,14 +252,14 @@
       "id": 1,
       "name": "Video",
       "description": "https://www.youtube.com/embed/LwCRRUa8yTU",
-      "state": false,
+      "state": true,
       "idCourse": 1
     },
     {
       "id": 2,
       "name": "Documentation",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu dapibus lectus. Nunc cursus tempus interdum.\n                Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus condimentum viverra magna, consequat laoreet\n                dolor lobortis eget. Praesent venenatis, elit non gravida tincidunt, ipsum lectus dapibus metus, sit amet imperdiet ante tortor in eros.\n                Aenean hendrerit posuere neque ac bibendum. Vestibulum convallis dictum gravida. Praesent hendrerit elementum eros, id mollis lacus ornare a.",
-      "state": false,
+      "state": true,
       "idCourse": 1
     },
     {

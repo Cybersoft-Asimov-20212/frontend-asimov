@@ -52,6 +52,9 @@
               </p>
               <v-card-actions>
                 <v-spacer></v-spacer>
+                <v-btn text color="red accent-4" class="font-weight-bold" @click="cancelDialog">
+                  Cancel
+                </v-btn>
                 <v-btn text color="indigo accent-4" class="font-weight-bold" @click="changeState(itemSelect.id)">
                   Completed
                 </v-btn>
@@ -170,6 +173,9 @@ export default {
     openDialog(data){
       this.itemSelect = data,
       this.dialog=true
+    },
+    cancelDialog(){
+      this.dialog=false
     },
     changeState(id){
       this.itemSelect.state = true,
