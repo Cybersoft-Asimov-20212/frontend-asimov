@@ -53,6 +53,7 @@ export default {
         age: teacher.age,
         email: teacher.email,
         phone: teacher.phone,
+        points: teacher.points,
         idDirector: teacher.idDirector
       };
     }

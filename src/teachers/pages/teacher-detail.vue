@@ -51,7 +51,7 @@
                 </v-col>
                 <v-col class="d-flex justify-center align-center">
                   <v-chip outlined rounded color="green darken-1" class="font-weight-bold">
-                       1250 Points
+                    {{ teacher.points }} Points
                   </v-chip>
                 </v-col>
               </v-row>
@@ -110,6 +110,7 @@ export default {
       age: '',
       email:'',
       phone:'',
+      points: '',
       idDirector: ''
     },
     courses: [
