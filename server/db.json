@@ -7,8 +7,8 @@
       "age": "30",
       "email": "sofia.gomez@gmail.com",
       "phone": "987654321",
-      "points": 1250,
-      "idDirector": 1
+      "idDirector": 1,
+      "points": 850
     },
     {
       "id": 2,
@@ -17,8 +17,8 @@
       "age": "25",
       "email": "juan.garcia@gmail.com",
       "phone": "987654321",
-      "points": 850,
-      "idDirector": 1
+      "idDirector": 1,
+      "points": 850
     },
     {
       "id": 3,
@@ -27,8 +27,8 @@
       "age": "36",
       "email": "manuel.aquino@gmail.com",
       "phone": "987654321",
-      "points": 1000,
-      "idDirector": 1
+      "idDirector": 1,
+      "points": 852
     },
     {
       "id": 4,
@@ -37,8 +37,8 @@
       "age": "47",
       "email": "luis.quispe@gmail.com",
       "phone": "987654321",
-      "points": 350,
-      "idDirector": 1
+      "idDirector": 1,
+      "points": 850
     },
     {
       "id": 5,
@@ -47,8 +47,8 @@
       "age": "27",
       "email": "marco.sanchez@gmail.com",
       "phone": "987654321",
-      "points": 600,
-      "idDirector": 1
+      "idDirector": 1,
+      "points": 853
     },
     {
       "id": 6,
@@ -57,8 +57,8 @@
       "age": "39",
       "email": "jose.mamani@gmail.com",
       "phone": "987654321",
-      "points": 1150,
-      "idDirector": 1
+      "idDirector": 1,
+      "points": 850
     },
     {
       "id": 7,
@@ -67,8 +67,8 @@
       "age": "27",
       "email": "julio.torres@gmail.com",
       "phone": "987654321",
-      "points": 150,
-      "idDirector": 1
+      "idDirector": 1,
+      "points": 850
     },
     {
       "id": 8,
@@ -77,8 +77,8 @@
       "age": "40",
       "email": "yordy.ruiz@gmail.com",
       "phone": "987654321",
-      "points": 500,
-      "idDirector": 1
+      "idDirector": 1,
+      "points": 900
     },
     {
       "id": 9,
@@ -87,8 +87,8 @@
       "age": "30",
       "email": "andre.gomez@gmail.com",
       "phone": "987654321",
-      "points": 1000,
-      "idDirector": 1
+      "idDirector": 1,
+      "points": 850
     },
     {
       "id": 10,
@@ -97,8 +97,8 @@
       "age": "19",
       "email": "omar.gomez@gmail.com",
       "phone": "987654321",
-      "points": 1050,
-      "idDirector": 1
+      "idDirector": 1,
+      "points": 1200
     },
     {
       "id": 11,
@@ -107,8 +107,8 @@
       "age": "29",
       "email": "ernesto.valenzuela@gmail.com",
       "phone": "987654321",
-      "points": 450,
-      "idDirector": 1
+      "idDirector": 1,
+      "points": 450
     },
     {
       "id": 12,
@@ -117,8 +117,8 @@
       "age": "43",
       "email": "camila.valverde@gmail.com",
       "phone": "987654321",
-      "points": 300,
-      "idDirector": 1
+      "idDirector": 1,
+      "points": 850
     },
     {
       "id": 13,
@@ -127,8 +127,8 @@
       "age": "34",
       "email": "hidalg.gomez@gmail.com",
       "phone": "987654321",
-      "points": 900,
-      "idDirector": 1
+      "idDirector": 1,
+      "points": 850
     },
     {
       "id": 14,
@@ -137,8 +137,8 @@
       "age": "24",
       "email": "pauloo.gomez@gmail.com",
       "phone": "987654321",
-      "points": 550,
-      "idDirector": 1
+      "idDirector": 1,
+      "points": 300
     },
     {
       "id": 15,
@@ -147,8 +147,8 @@
       "age": "34",
       "email": "irvinn.sotomayor@gmail.com",
       "phone": "987654321",
-      "points": 1000,
-      "idDirector": 1
+      "idDirector": 1,
+      "points": 650
     },
     {
       "id": 16,
@@ -157,8 +157,8 @@
       "age": "21",
       "email": "ramoss.paredes@gmail.com",
       "phone": "987654321",
-      "points": 950,
-      "idDirector": 1
+      "idDirector": 1,
+      "points": 850
     },
     {
       "id": 17,
@@ -167,8 +167,8 @@
       "age": "22",
       "email": "timmyy.gomez@gmail.com",
       "phone": "987654321",
-      "points": 350,
-      "idDirector": 1
+      "idDirector": 1,
+      "points": 400
     },
     {
       "id": 18,
@@ -177,8 +177,8 @@
       "age": "34",
       "email": "ernest.gomez@gmail.com",
       "phone": "987654321",
-      "points": 850,
-      "idDirector": 1
+      "idDirector": 1,
+      "points": 320
     }
   ],
   "announcements": [
