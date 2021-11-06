@@ -8,6 +8,10 @@ class AnnouncementsService {
     create(createAnnouncementDto){
         return http.post(this.endpoint, createAnnouncementDto);
     }
+
+    delete(id){
+        return http.delete(`${this.endpoint}/${id}`);
+    }
 }
 
 export default new AnnouncementsService();

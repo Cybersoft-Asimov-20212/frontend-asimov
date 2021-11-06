@@ -53,7 +53,7 @@
           <p>Score obtained</p>
         </v-list-item-content>
         <v-spacer></v-spacer>
-        <h2 class="font-weight-bold">1080 Pts.</h2>
+        <h2 class="font-weight-bold">{{topTeacher.points}} Pts.</h2>
       </v-list-item>
     </v-card>
   </v-container>
@@ -71,11 +71,13 @@ export default {
     TopTeachersService.getAll()
         .then((response) => {
           this.topTeachers = response.data.map(this.getDisplayTopTeachers);
-          console.log(response.data);
+          this.topTeachers.sort(((a, b) => a.points - b.points)).reverse();
+          console.log("Order: ",this.topTeachers);
         })
         .catch(e => {
           console.log(e);
         });
+    this.refreshList()
   },
   methods: {
     getDisplayTopTeachers(topteacher){
@@ -83,9 +85,10 @@ export default {
         id: topteacher.id,
         name: topteacher.name,
         lastname: topteacher.lastname,
-        age: topteacher.age
+        age: topteacher.age,
+        points: topteacher.points
       };
-    },
+    }
   }
 }
 </script>

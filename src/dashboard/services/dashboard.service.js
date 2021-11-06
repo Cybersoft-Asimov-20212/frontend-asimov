@@ -1,7 +1,7 @@
 import http from '@/core/http-common'
 
 class DashboardService {
-    endpoint = '/dashboard'
+    endpoint = '/announcements'
     getAll(){
         return http.get(this.endpoint);
     }

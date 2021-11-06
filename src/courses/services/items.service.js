@@ -8,6 +8,10 @@ class ItemsService {
     getByIdCourse(idCourse){
         return http.get(`${this.endpoint}/?idCourse=${idCourse}`)
     }
+
+    update(id, updateItemDto){
+        return http.put(`${this.endpoint}/${id}`, updateItemDto);
+    }
 }
 
 export default new ItemsService();
