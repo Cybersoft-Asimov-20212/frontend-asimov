@@ -7,37 +7,78 @@
         <v-container>
             <v-row>
               <v-col cols="12">
-                <h3 class="mb-2 pl-1">Points</h3>
-                <v-card class="py-2">
+                <h3 class="mb-2 pl-1">Features</h3>
+                <v-card class="py-2 mb-3 pr-2">
                   <v-container>
-                    <v-row>
-                      <div class="d-flex justify-start align-center ml-5 mr-3">
-                        <v-icon>mdi-check-bold</v-icon>
-                      </div>
-                      <v-col>
-                        <div>You</div>
-                        <p class="text--primary font-weight-bold mb-1">Points earned</p>
+                    <v-row class="d-flex justify-space-between" justify="space-between">
+                      <v-col class="justify-start">
+                        <v-card-title>¡Meet all your teachers!</v-card-title>
+                        <v-card-text class="text-justify">You will meet all your teachers in detail in the teachers
+                          section. You will see an ordered list with important information about the teachers in
+                          your educational institution.
+                        </v-card-text>
+                        <v-card-actions class="pl-4">
+                          <v-btn color="indigo accent-4" outlined link to="/teachers">Let's go!</v-btn>
+                        </v-card-actions>
                       </v-col>
-                      <v-col class="d-flex justify-center align-center">
-                        <v-chip outlined rounded color="green darken-1" class="font-weight-bold">
-                          1250 Points
-                        </v-chip>
+                      <v-col class="justify-end">
+                        <v-img class="graphics"
+                               src="https://s9.gifyu.com/images/asimov-teachers.gif"
+                               alt="asimov teachers" width="350">
+                          <template v-slot:placeholder>
+                            <v-row
+                                class="fill-height ma-0"
+                                align="center"
+                                justify="center"
+                            >
+                              <v-progress-circular
+                                  indeterminate
+                                  color="grey lighten-5"
+                              ></v-progress-circular>
+                            </v-row>
+                          </template>
+                        </v-img>
+                      </v-col>
+                    </v-row>
+                  </v-container>
+                </v-card>
+                <v-card class="py-2 mb-3 pr-2">
+                  <v-container>
+                    <v-row class="d-flex justify-space-between">
+                      <v-col class="justify-start">
+                        <v-card-title>Know your course progress</v-card-title>
+                        <v-card-text class="text-justify">View in detail the description of the subject you are
+                          studying and complete the items of it. Here you can also view the progress of which
+                          sections are complete. You can also see the skills related to the course.
+                        </v-card-text>
+                        <v-card-actions class="pl-4">
+                          <v-btn outlined color="indigo accent-4" link to="/courses">Let's go!</v-btn>
+                        </v-card-actions>
+                      </v-col>
+                      <v-col class="justify-end">
+                        <v-img class="graphics"
+                               src="https://s9.gifyu.com/images/asimov-courses.gif"
+                               alt="asimov courses" width="350">
+                          <template v-slot:placeholder>
+                            <v-row
+                                class="fill-height ma-0"
+                                align="center"
+                                justify="center"
+                            >
+                              <v-progress-circular
+                                  indeterminate
+                                  color="grey lighten-5"
+                              ></v-progress-circular>
+                            </v-row>
+                          </template>
+                        </v-img>
                       </v-col>
                     </v-row>
                   </v-container>
                 </v-card>
               </v-col>
             </v-row>
-            <v-row>
-              <v-col cols="12">
-                <h3 class="mb-2 pl-1">Last four announcements</h3>
-                <v-card class="mb-3">
-                  <v-card-title>Example title card</v-card-title>
-                  <v-card-text>Example text</v-card-text>
-                </v-card>
 
-              </v-col>
-            </v-row>
           </v-container>
         </v-col>
         <v-col cols="12" sm="6">
@@ -59,24 +100,41 @@
                   ></v-progress-linear>
                 </v-card>
               </v-col>
-            </v-row>
-            <v-row>
               <v-col cols="12">
                 <h3 class="mb-2 pl-1">Profile</h3>
                 <v-card class="py-2">
-                  <v-list-item>
-                    <v-list-item-content>
-                      <div>OVERLINE</div>
-                      <v-list-item-title>Headline 5</v-list-item-title>
-                      <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>
-                    </v-list-item-content>
-
-                    <v-list-item-avatar rounded size="120" color="grey"></v-list-item-avatar>
-                  </v-list-item>
+                  <v-container>
+                    <v-row>
+                      <div class="d-flex justify-start align-center ml-5 mr-3">
+                        <v-icon>mdi-check-bold</v-icon>
+                      </div>
+                      <v-col>
+                        <div>You</div>
+                        <p class="text--primary font-weight-bold mb-1">Points earned</p>
+                      </v-col>
+                      <v-col class="d-flex justify-center align-center">
+                        <v-chip outlined rounded color="green darken-1" class="font-weight-bold">
+                          1250 Points
+                        </v-chip>
+                      </v-col>
+                    </v-row>
+                  </v-container>
                 </v-card>
               </v-col>
-            </v-row>
-          </v-container>
+              <v-col cols="12" align-self="end">
+                <h3 class="mb-2 pl-1">Last announcements</h3>
+                <v-card class="mb-3">
+                  <v-card-title>{{ this.announcements[0].title }}</v-card-title>
+                  <v-card-text>{{ this.announcements[0].description }}</v-card-text>
+                </v-card>
+                <v-card class="mb-3">
+                  <v-card-title>{{ this.announcements[1].title }}</v-card-title>
+                  <v-card-text>{{ this.announcements[1].description }}</v-card-text>
+                </v-card>
+              </v-col>
+              </v-row>
+
+        </v-container>
         </v-col>
       </v-row>
     </v-container>
@@ -92,7 +150,6 @@ export default {
     valueProgress: '',
     dateOut: '',
     announcements: [],
-    lastFourAnnouncements: [],
     id: '',
     title: '',
     description: ''
@@ -123,6 +180,7 @@ export default {
       AnnouncementsService.getAll()
           .then((response) => {
             this.announcements = response.data.map(this.getDisplayAnnouncement);
+            this.announcements.reverse();
             console.log(response.data);
           })
     },
@@ -131,5 +189,7 @@ export default {
 </script>
 
 <style scoped>
-
+.graphics {
+  border-radius: 5px;
+}
 </style>
