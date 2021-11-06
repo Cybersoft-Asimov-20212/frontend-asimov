@@ -54,6 +54,11 @@ const routes = [
     path: "/top-teachers",
     name: 'top-teachers',
     component: () => import(/* webpackChunkName: "about" */ '@/top-teachers/pages/top-teachers')
+  },
+  {
+    path: '/announcements-for-teachers',
+    name: 'announcements-for-teachers',
+    component: () => import(/* webpackChunkName: "about" */ '@/announcements/pages/announcements-for-teachers')
   }
 ]
 

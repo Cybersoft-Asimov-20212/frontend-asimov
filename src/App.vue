@@ -83,7 +83,15 @@
             </v-list-item-icon>
             <v-list-item-title>Competences</v-list-item-title>
           </v-list-item>
+
+          <v-list-item link to="/announcements-for-teachers">
+            <v-list-item-icon>
+              <v-icon>mdi-bullhorn</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Announcements</v-list-item-title>
+          </v-list-item>
         </v-list>
+
 
       </v-navigation-drawer>
 

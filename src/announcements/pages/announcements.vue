@@ -6,15 +6,17 @@
           <h1>Announcements for teachers</h1>
         </v-col>
         <v-col cols="12">
-          <form>
-            <div class="pa-5">
-              <v-text-field class="pa-3" v-model="title" label="Title announcement input"  :rules="rules"  hide-details="auto"></v-text-field>
-              <v-text-field class="pa-3"  v-model="description" label="Description announcement input" :rules="rules" hide-details="auto"></v-text-field>
-            </div>
-            <div class="pl-8">
-              <v-btn outlined rounded color="indigo accent-4" class="font-weight-bold pa-3" @click="createNewAnnouncement">Submit</v-btn>
-            </div>
-          </form>
+          <v-card class="px-3 pb-6">
+            <form>
+              <div class="pa-5">
+                <v-text-field class="pa-3" v-model="title" label="Title announcement input"  :rules="rules"  hide-details="auto"></v-text-field>
+                <v-text-field class="pa-3"  v-model="description" label="Description announcement input" :rules="rules" hide-details="auto"></v-text-field>
+              </div>
+              <div class="pl-8">
+                <v-btn outlined rounded color="indigo accent-4" class="font-weight-bold pa-3" @click="createNewAnnouncement">Submit</v-btn>
+              </div>
+            </form>
+          </v-card>
         </v-col>
       </v-row>
 
@@ -27,7 +29,10 @@
             <v-card class="mx-auto my-3 mx-2" elevation="1">
               <v-card-title><v-icon class="mr-3">mdi-human-queue</v-icon>
                 {{announcement.title}}</v-card-title>
-              <v-card-text>{{announcement.description}}</v-card-text>
+              <v-container class="d-flex justify-space-between pt-1 pb-3 px-4 align-center">
+                <p class="mb-0">{{announcement.description}}</p>
+                <v-btn outlined rounded color="red accent-4" @click="deleteAnnouncement(announcement.id)"><v-icon>mdi-trash-can</v-icon></v-btn>
+              </v-container>
             </v-card>
           </div>
         </v-col>
@@ -84,7 +89,16 @@ export default {
             console.log(response.data);
             this.refreshList();
           })
-    }
+    },
+    deleteAnnouncement(id){
+      AnnouncementsService.delete(id)
+          .then( () => {
+            this.refreshList();
+          })
+          .catch(e => {
+            console.log(e);
+          })
+    },
   }
 }
 </script>
