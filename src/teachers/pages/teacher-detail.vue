@@ -6,13 +6,13 @@
           <h1 class="font-weight-bold pb-3">Teacher information</h1>
           <v-card class="mx-auto" max-height="230" min-height="150">
             <v-card-title class="mb-1 indigo accent-4 font-weight-bold white--text">
-              {{teacher.name}} {{teacher.lastname}}
+              {{teacher.firstName}} {{teacher.lastName}}
             </v-card-title>
             <v-card-text class="text--primary mt-3">
               <p class="text-justify mb-0">
                 <strong>Personal information:</strong><br>
-                Name(s): {{teacher.name}}<br>
-                Last name: {{teacher.lastname}}<br>
+                Name(s): {{teacher.firstName}}<br>
+                Last name: {{teacher.lastName}}<br>
                 Age: {{teacher.age}} <br>
                 Email: {{teacher.email}}<br>
                 Phone: {{teacher.phone}}<br>
@@ -51,7 +51,7 @@
                 </v-col>
                 <v-col class="d-flex justify-center align-center">
                   <v-chip outlined rounded color="green darken-1" class="font-weight-bold">
-                    {{ teacher.points }} Points
+                    {{ teacher.point }} Points
                   </v-chip>
                 </v-col>
               </v-row>
@@ -105,13 +105,13 @@ export default {
     value: 35,
     teacher: {
       id: '',
-      name: '',
-      lastname: '',
+      point: '',
+      firstName: '',
+      lastName: '',
       age: '',
       email:'',
       phone:'',
-      points: '',
-      idDirector: ''
+      directorId: ''
     },
     courses: [
       'Literature',
