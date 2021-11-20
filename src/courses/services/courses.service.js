@@ -1,8 +1,8 @@
 import http from '@/core/http-common'
 class CoursesService {
     endpoint = '/courses';
-    getAll(){
-        return http.get(this.endpoint);
+    getAll(id){
+        return http.get(`teachers/${id}${this.endpoint}`);
     }
 
     getById(id){
@@ -13,7 +13,7 @@ class CoursesService {
         return http.get(`${this.endpoint}/${idCourse}/items`)
     }
 
-    getCompetencesByIdCourse(idCourse) {
+    getCompetencesByIdCourse(idCourse){
         return http.get(`${this.endpoint}/${idCourse}/competences`)
     }
 

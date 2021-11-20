@@ -79,7 +79,7 @@
                   <div class="text--secondary">{{ course.description }}</div>
                 </v-col>
                 <v-col class="d-flex justify-center align-center">
-                  <v-btn v-if="course.state==true" outlined rounded color="green accent-3" class="font-weight-bold">
+                  <v-btn v-if="course.state==true" outlined rounded color="green darken-1" class="font-weight-bold">
                     Completed
                   </v-btn>
                   <v-btn v-else outlined rounded color="red darken-1" class="font-weight-bold">

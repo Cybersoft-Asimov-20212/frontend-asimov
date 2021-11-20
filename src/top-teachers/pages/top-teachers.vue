@@ -68,7 +68,7 @@ export default {
     topTeachers: []
   }),
   created() {
-    TopTeachersService.getAll()
+    TopTeachersService.getAll(1)
         .then((response) => {
           this.topTeachers = response.data.map(this.getDisplayTopTeachers);
           this.topTeachers.sort(((a, b) => a.points - b.points)).reverse();

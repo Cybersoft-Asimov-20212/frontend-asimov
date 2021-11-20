@@ -142,7 +142,7 @@
 </template>
 
 <script>
-import AnnouncementsService from "@/announcements/services/announcements.service";
+import DashboardService from "@/dashboard/services/dashboard.service";
 
 export default {
   name: "dashboard",
@@ -177,7 +177,7 @@ export default {
       };
     },
     refreshList (){
-      AnnouncementsService.getAll()
+      DashboardService.getAll(1)
           .then((response) => {
             this.announcements = response.data.map(this.getDisplayAnnouncement);
             this.announcements.reverse();

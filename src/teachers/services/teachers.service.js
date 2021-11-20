@@ -1,8 +1,8 @@
 import http from '@/core/http-common'
 class TeachersService {
     endpoint = '/teachers';
-    getAll(){
-        return http.get(this.endpoint);
+    getAll(id){
+        return http.get(`directors/${id}${this.endpoint}`);
     }
 
     getById(id){

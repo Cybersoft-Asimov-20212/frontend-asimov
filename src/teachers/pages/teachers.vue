@@ -35,7 +35,7 @@ export default {
     teachers: [],
   }),
   created() {
-    TeachersService.getAll()
+    TeachersService.getAll(1)
         .then((response) => {
           this.teachers = response.data.map(this.getDisplayTeacher);
           console.log(response.data);

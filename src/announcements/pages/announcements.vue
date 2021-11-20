@@ -54,7 +54,7 @@ export default {
     id: '',
     title: '',
     description: '',
-    directorId: 1,
+    directorId: 0,
     rules: [
       value => !!value || 'Required.',
       value => (value && value.length >= 3) || 'Min 3 characters',
@@ -73,7 +73,7 @@ export default {
       };
     },
     refreshList (){
-      AnnouncementsService.getAll()
+      AnnouncementsService.getAllByID(1)
           .then((response) => {
             this.announcements = response.data.map(this.getDisplayAnnouncement);
             console.log(response.data);

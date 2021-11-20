@@ -44,7 +44,7 @@ export default {
       };
     },
     refreshList() {
-      AnnouncementsService.getAll()
+      AnnouncementsService.getAllByID(1)
           .then((response) => {
             this.announcements = response.data.map(this.getDisplayAnnouncement);
             console.log(response.data);
