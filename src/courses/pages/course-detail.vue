@@ -9,7 +9,7 @@
               {{course.name}}
             </v-card-title>
             <v-card-text class="text--primary mt-3">
-              Description:
+              <strong>Description:</strong>
               <p class="text-justify mb-0">{{course.description}}</p>
             </v-card-text>
           </v-card>
@@ -42,20 +42,20 @@
               <v-divider></v-divider>
 
               <div v-if="itemSelect.name == 'Video'" class="d-flex justify-center align-center py-3">
-                <iframe width="560" height="315" v-bind:src="itemSelect.description"
+                <iframe width="560" height="315" v-bind:src="itemSelect.value"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
               </div>
               <p v-else class="d-flex justify-start align-center pt-5 pb-3 px-7 text-justify">
-                {{itemSelect.description}}
+                {{itemSelect.value}}
               </p>
               <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn text color="red accent-4" class="font-weight-bold" @click="cancelDialog">
                   Cancel
                 </v-btn>
-                <v-btn text color="indigo accent-4" class="font-weight-bold" @click="changeState(itemSelect.id)">
+                <v-btn text color="indigo accent-4" class="font-weight-bold" @click="changeStateItem(itemSelect.id)">
                   Completed
                 </v-btn>
               </v-card-actions>
@@ -68,7 +68,7 @@
                 <v-col>
                   <div>Item</div>
                   <p class="text--primary font-weight-bold mb-1">{{ item.name }}</p>
-                  <div class="text--secondary  text-truncate" style="max-width: 450px;">{{ item.description }}</div>
+                  <div class="text--secondary  text-truncate" style="max-width: 450px;">{{ item.value }}</div>
                 </v-col>
                 <v-col class="d-flex justify-center align-center">
                   <v-btn outlined rounded color="indigo accent-4" class="font-weight-bold" @click.stop="openDialog(item)">
@@ -86,7 +86,7 @@
             <div>
               <v-chip-group class="py-3" column>
                 <v-chip outlined v-for="competence in competences" :key="competence">
-                  {{ competence }}
+                  {{ competence.title }}
                 </v-chip>
               </v-chip-group>
             </div>
@@ -105,17 +105,9 @@ export default {
   name: "course-detail",
   data: () => ({
     dialog: false,
-    items: [ ],
+    items: [],
     valueBarProgress: 0,
-    competences: [
-      'Mathematical Reasoning',
-      'Assertiveness',
-      'Critical thinking',
-      'Grammar',
-      'Mathematical design',
-      'Creativity',
-      'Logic',
-    ],
+    competences: [],
     id: '',
     name: '',
     description: '',
@@ -128,14 +120,15 @@ export default {
     itemSelect: {
       id: '',
       name: '',
-      description: '',
+      value: '',
       state: '',
-      idCourse: '',
+      courseId: '',
     }
   }),
   created() {
     this.SelectCourse();
     this.refreshList();
+    this.refreshListCompetences();
   },
   updated() {
     this.changeValueProgress();
@@ -152,7 +145,7 @@ export default {
           });
     },
     refreshList(){
-      ItemsService.getByIdCourse(this.$route.params.id)
+      CoursesService.getByIdCourse(this.$route.params.id)
           .then((response) => {
             this.items = response.data.map(this.getDisplayItem);
             console.log(response.data);
@@ -161,13 +154,20 @@ export default {
             console.log(e);
           });
     },
+    refreshListCompetences(){
+      CoursesService.getCompetencesByIdCourse(this.$route.params.id)
+        .then((response) => {
+          this.competences = response.data;
+          console.log(response.data)
+        })
+    },
     getDisplayItem(item){
       return {
         id: item.id,
         name: item.name,
-        description: item.description,
+        value: item.value,
         state: item.state,
-        idCourse: item.idCourse,
+        courseId: item.courseId,
       };
     },
     openDialog(data){
@@ -177,11 +177,30 @@ export default {
     cancelDialog(){
       this.dialog=false
     },
-    changeState(id){
+    changeStateItem(id){
       this.itemSelect.state = true,
-      ItemsService.update(id, this.itemSelect),
+      ItemsService.update(id, this.itemSelect)
+          .catch(e => {
+            console.log(e);
+          }),
       console.log("Change state", this.itemSelect.id),
       this.dialog=false
+    },
+    changeStateCourse(){
+      this.course.state = true,
+          CoursesService.updateCourse(this.course.id, this.course)
+              .catch(e => {
+                console.log(e);
+              }),
+          console.log("Change state", this.course.name)
+    },
+    validateStateCourse(){
+      let val = 100 - this.valueBarProgress;
+      if(this.valueBarProgress >= 99) {
+        this.changeStateCourse();
+      }
+      else
+        console.log(val,"% missing to complete the course")
     },
     changeValueProgress(){
       let countComplete = 0;
@@ -191,7 +210,8 @@ export default {
           countComplete = countComplete + 1;
         }
       }
-      this.valueBarProgress = (countComplete/total)*100;
+      this.valueBarProgress = Math.round((countComplete/total)*100);
+      this.validateStateCourse();
     }
   }
 }

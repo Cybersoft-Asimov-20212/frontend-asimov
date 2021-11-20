@@ -11,8 +11,8 @@
           <v-card v-for="teacher in teachers" :key="teacher.id" class="pb-2 ma-3" width="345" max-height="350">
             <v-card-text>
               <div>Teacher</div>
-              <h1 class="text--primary font-weight-bold py-3">{{teacher.name}}</h1>
-              <div>{{ teacher.lastname }}</div>
+              <h1 class="text--primary font-weight-bold py-3">{{teacher.firstName}}</h1>
+              <div>{{ teacher.lastName }}</div>
               <div>{{teacher.email}}</div>
               <div>{{teacher.phone}}</div>
             </v-card-text>
@@ -35,7 +35,7 @@ export default {
     teachers: [],
   }),
   created() {
-    TeachersService.getAll()
+    TeachersService.getAll(1)
         .then((response) => {
           this.teachers = response.data.map(this.getDisplayTeacher);
           console.log(response.data);
@@ -48,13 +48,13 @@ export default {
     getDisplayTeacher(teacher) {
       return {
         id: teacher.id,
-        name: teacher.name,
-        lastname: teacher.lastname,
+        point: teacher.point,
+        firstName: teacher.firstName,
+        lastName: teacher.lastName,
         age: teacher.age,
         email: teacher.email,
         phone: teacher.phone,
-        points: teacher.points,
-        idDirector: teacher.idDirector
+        directorId: teacher.directorId
       };
     }
   }

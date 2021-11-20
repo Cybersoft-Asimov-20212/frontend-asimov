@@ -13,12 +13,12 @@
               <v-card-subtitle class="pb-0 white--text">
                 Course
               </v-card-subtitle>
-              <v-card-title class="pb-1 pt-0 white--text">
+              <v-card-title class="pb-1 pt-0 white--text font-weight-bold">
                 {{course.name}}
               </v-card-title>
             </div>
             <v-card-text class="text-justify pb-1 text--secondary">
-              Description: {{course.description}}
+              <strong>Description:</strong> {{course.description}}
             </v-card-text>
             <v-card-actions>
               <v-btn text color="indigo accent-4" class="font-weight-bold te" :to="`/courses/${course.id}`">see more</v-btn>
@@ -53,7 +53,7 @@ export default {
       };
     },
     refreshList (){
-      CoursesService.getAll()
+      CoursesService.getAll(1)
           .then((response) => {
             this.courses = response.data.map(this.getDisplayCourse);
             console.log(response.data);

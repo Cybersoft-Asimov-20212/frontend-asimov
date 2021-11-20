@@ -61,6 +61,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "announcements-for-teachers" */ '@/announcements/pages/announcements-for-teachers')
   },
   {
+    path: '/sign-up',
+    name: 'sign-up',
+    component: () => import(/* webpackChunkName: "sign-up" */ '@/sign-up/pages/sign-up')
+  },
+  {
     path: '/log-in',
     name: 'log-in',
     component: () => import(/* webpackChunkName: "log-in" */ '@/log-in/pages/log-in')

@@ -46,7 +46,6 @@
 
 
 import AnnouncementsService from '@/announcements/services/announcements.service';
-import { v4 as uuidv4 } from 'uuid';
 
 export default {
   name: "announcements",
@@ -55,6 +54,7 @@ export default {
     id: '',
     title: '',
     description: '',
+    directorId: 0,
     rules: [
       value => !!value || 'Required.',
       value => (value && value.length >= 3) || 'Min 3 characters',
@@ -68,11 +68,12 @@ export default {
       return {
         id: announcement.id,
         title: announcement.title,
-        description: announcement.description
+        description: announcement.description,
+        directorId: this.directorId
       };
     },
     refreshList (){
-      AnnouncementsService.getAll()
+      AnnouncementsService.getAllByID(1)
           .then((response) => {
             this.announcements = response.data.map(this.getDisplayAnnouncement);
             console.log(response.data);
@@ -80,9 +81,9 @@ export default {
     },
     createNewAnnouncement () {
       const announcement = {
-        id: uuidv4(),
         title: this.title,
-        description: this.description
+        description: this.description,
+        directorId: this.directorId
       }
       AnnouncementsService.create(announcement)
           .then((response) => {
