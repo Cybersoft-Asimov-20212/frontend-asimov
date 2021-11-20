@@ -48,8 +48,8 @@
 
             <v-card-actions>
               <v-btn color="error"
-                     text class="font-weight-bold"
-                     @click="reset">
+                     class="font-weight-bold"
+                     text @click="reset">
                 Reset Form
               </v-btn>
               <v-spacer></v-spacer>
@@ -70,37 +70,42 @@
 <script>
 export default {
   name: "log-in",
-    data: () => ({
-      errorMessages: '',
-      password: null,
-      formHasErrors: false,
-      valid: true,
-      passwordRules: [
-        v => !!v || 'Password is required',
-      ],
-      email: '',
-      emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-      ],
-    }),
+  data: () => ({
+    password: null,
+    formHasErrors: false,
+    valid: true,
+    passwordRules: [
+      v => !!v || 'Password is required',
+    ],
+    email: '',
+    emailRules: [
+      v => !!v || 'E-mail is required',
+      v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+    ],
+  }),
 
-    methods: {
-      submit () {
-        this.$refs.form.validate();
+  methods: {
+    submit () {
+      this.$refs.form.validate()
+      let val = this.$refs.form.validate();
+      console.log(val);
 
+      if(val){
         const usuario = {
           correo: this.email,
           password: this.password,
         };
 
         console.log("el usuario es: ", usuario);
-      },
-      reset () {
-        this.$refs.form.reset()
+
+        this.reset()
       }
     },
-  }
+    reset () {
+      this.$refs.form.reset()
+    }
+  },
+}
 </script>
 
 <style scoped>
