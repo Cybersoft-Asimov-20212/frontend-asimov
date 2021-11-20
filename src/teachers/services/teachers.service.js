@@ -8,6 +8,10 @@ class TeachersService {
     getById(id){
         return http.get(`${this.endpoint}/${id}`)
     }
+
+    getAllCoursesById(id){
+        return http.get(`${this.endpoint}/${id}/courses`)
+    }
 }
 
 export default new TeachersService();

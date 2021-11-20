@@ -9,14 +9,23 @@
               {{teacher.firstName}} {{teacher.lastName}}
             </v-card-title>
             <v-card-text class="text--primary mt-3">
-              <p class="text-justify mb-0">
                 <strong>Personal information:</strong><br>
-                Name(s): {{teacher.firstName}}<br>
-                Last name: {{teacher.lastName}}<br>
-                Age: {{teacher.age}} <br>
-                Email: {{teacher.email}}<br>
-                Phone: {{teacher.phone}}<br>
-              </p>
+              <v-row>
+                <v-col cols="2" class="font-weight-bold">
+                  - Name(s):     <br>
+                  - Last name:   <br>
+                  - Age:         <br>
+                  - Email:       <br>
+                  - Phone:       <br>
+                </v-col>
+                <v-col cols="10">
+                  {{teacher.firstName}} <br>
+                  {{teacher.lastName}}  <br>
+                  {{teacher.age}}       <br>
+                  {{teacher.email}}     <br>
+                  {{teacher.phone}}     <br>
+                </v-col>
+              </v-row>
             </v-card-text>
           </v-card>
         </v-col>
@@ -37,7 +46,7 @@
       </v-row>
 
       <v-row class="pt-4">
-        <v-col cols="8">
+        <v-col cols="12">
           <h1 class="font-weight-bold pb-3">Point for progress</h1>
           <v-card class="mx-auto mb-3">
             <v-container>
@@ -58,7 +67,7 @@
             </v-container>
           </v-card>
           <h1 class="font-weight-bold py-3">Courses in progress and completed</h1>
-          <v-card v-for="course in courses" :key="course" class="mx-auto mb-3">
+          <v-card v-for="course in courses" :key="course.id" class="mx-auto mb-3">
             <v-container>
               <v-row>
                 <div class="d-flex justify-start align-center ml-5 mr-3">
@@ -66,12 +75,15 @@
                 </div>
                 <v-col>
                   <div>Course</div>
-                  <p class="text--primary font-weight-bold mb-1">{{ course }}</p>
-                  <div class="text--secondary">Lorem ipsum sit amet</div>
+                  <p class="text--primary font-weight-bold mb-1">{{ course.name }}</p>
+                  <div class="text--secondary">{{ course.description }}</div>
                 </v-col>
                 <v-col class="d-flex justify-center align-center">
-                  <v-btn outlined rounded color="indigo accent-4" class="font-weight-bold" v-bind="attrs" v-on="on">
-                    Learn More
+                  <v-btn v-if="course.state==true" outlined rounded color="green accent-3" class="font-weight-bold">
+                    Completed
+                  </v-btn>
+                  <v-btn v-else outlined rounded color="red darken-1" class="font-weight-bold">
+                    Incomplete
                   </v-btn>
                 </v-col>
               </v-row>
@@ -79,18 +91,6 @@
           </v-card>
         </v-col>
 
-        <v-col cols="4" class="pl-15">
-          <h1 class="font-weight-bold pb-3">Competences includes</h1>
-          <v-card class="d-flex mx-auto px-5 align-center" min-height="150">
-            <div>
-              <v-chip-group class="py-3" column>
-                <v-chip outlined v-for="competence in competences" :key="competence">
-                  {{ competence }}
-                </v-chip>
-              </v-chip-group>
-            </div>
-          </v-card>
-        </v-col>
       </v-row>
     </v-container>
   </div>
@@ -102,7 +102,7 @@ import TeachersService from '../services/teachers.service'
 export default {
   name: "teacher-detail",
   data: () => ({
-    value: 35,
+    value: '',
     teacher: {
       id: '',
       point: '',
@@ -113,11 +113,7 @@ export default {
       phone:'',
       directorId: ''
     },
-    courses: [
-      'Literature',
-      'Arithmetic',
-      'History',
-    ],
+    courses: [],
     competences: [
       'Mathematical Reasoning',
       'Assertiveness',
@@ -129,14 +125,51 @@ export default {
     ],
   }),
   created() {
-    TeachersService.getById(this.$route.params.id)
+    this.refreshDataTeacher();
+    this.refreshCoursesByTeacher();
+  },
+  updated() {
+    this.changeValueProgress();
+  },
+  methods: {
+    refreshDataTeacher(){
+      TeachersService.getById(this.$route.params.id)
+          .then((response) => {
+            this.teacher = response.data;
+            console.log(response.data);
+          })
+          .catch(e => {
+            console.log(e);
+          });
+    },
+    refreshCoursesByTeacher(){
+      TeachersService.getAllCoursesById(this.$route.params.id)
         .then((response) => {
-          this.teacher = response.data;
-          console.log(response.data);
+            this.courses = response.data.map(this.getDisplayCourse);
+            console.log("List of courses: ",response.data);
         })
         .catch(e => {
-          console.log(e);
+          console.log("Error: ", e);
         });
+    },
+    getDisplayCourse(course){
+      return {
+        id: course.id,
+        name: course.name,
+        description: course.description,
+        state: course.state,
+      }
+    },
+    changeValueProgress(){
+      let countComplete = 0;
+      let total = this.courses.length;
+      for (let i = 0; i < this.courses.length; i++) {
+        if(this.courses[i].state == true){
+          countComplete = countComplete + 1;
+        }
+      }
+      this.value = (countComplete/total)*100;
+    }
   }
 }
 </script>
