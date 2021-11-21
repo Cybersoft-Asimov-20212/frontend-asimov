@@ -46,7 +46,7 @@ const routes = [
     component: () => import('@/teachers/pages/teacher-detail')
   },
   {
-    path: '/profile/:id',
+    path: '/profile',
     name: 'profile',
     component: () => import('@/profile/pages/profile')
   },

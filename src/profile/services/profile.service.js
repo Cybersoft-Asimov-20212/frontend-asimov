@@ -1,12 +1,17 @@
 import http from '@/core/http-common'
 class ProfileService {
-    endpoint = '/directors';
+    firstEndpoint = '/directors';
     getAll(){
-        return http.get(this.endpoint);
+        return http.get(this.firstEndpoint);
     }
 
-    getById(id){
-        return http.get(`${this.endpoint}/${id}`)
+    getDirectorById(id){
+        return http.get(`${this.firstEndpoint}/${id}`)
+    }
+
+    secondEndpoint = '/teachers';
+    getTeacherById(id){
+        return http.get(`${this.secondEndpoint}/${id}`)
     }
 }
 
