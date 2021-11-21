@@ -137,6 +137,7 @@ export default {
       let val = this.$refs.form.validate();
       let val2 = this.typeUser;
       console.log(val);
+      console.log(val2);
 
       if(val){
         const user = {
@@ -144,7 +145,7 @@ export default {
           password: this.password,
         };
 
-        AuthService.login(user)
+        AuthService.login(user,val2)
             .then(response => {
               if (response.data.token) {
                 localStorage.setItem('user', JSON.stringify(response.data));

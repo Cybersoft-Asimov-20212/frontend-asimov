@@ -1,8 +1,9 @@
 import http from '@/core/http-common'
 class TopTeachersService {
     endpoint = '/teachers';
-    getAll(id){
-        return http.get(`directors/${id}${this.endpoint}`);
+    user = JSON.parse(localStorage.getItem('user'));
+    getAll(){
+        return http.get(`directors/${this.user.id}${this.endpoint}`);
     }
 }
 

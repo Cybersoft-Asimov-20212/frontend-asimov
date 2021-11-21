@@ -2,15 +2,15 @@ import axios from 'axios';
 const API_URL = 'https://localhost:5001/auth/';
 
 class AuthService {
-    login(user) {
-        return axios.post(API_URL + 'sign-in', {
+    login(user, typeU) {
+        return axios.post(API_URL + 'sign-in/' + typeU, {
             email: user.email,
             password: user.password
         })
     }
 
-    register(user) {
-        return axios.post(API_URL + 'sign-up', {
+    register(user, typeU) {
+        return axios.post(API_URL + 'sign-up/' + typeU, {
             firstName: user.firstName,
             lastName: user.lastName,
             age: user.age,

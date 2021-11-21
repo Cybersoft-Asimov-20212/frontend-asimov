@@ -74,7 +74,8 @@ export default {
       };
     },
     refreshList (){
-      AnnouncementsService.getAllByID(1)
+      let user = JSON.parse(localStorage.getItem('user'))
+      AnnouncementsService.getAllByID(user.id)
           .then((response) => {
             this.announcements = response.data.map(this.getDisplayAnnouncement);
             console.log(response.data);

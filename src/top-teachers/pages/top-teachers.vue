@@ -28,7 +28,6 @@
                 </v-col>
               </v-row>
             </div>
-
             <div>Actual points</div>
             <div class="font-weight-bold">
               <h3>{{this.topTeachers[0].point}} points</h3>
@@ -47,7 +46,6 @@
         <figure class="mr-4">
           <v-icon>mdi-clipboard-outline</v-icon>
         </figure>
-
         <v-list-item-content class="mt-3">
           <p class="text--primary"> <strong> Teacher:</strong> {{topTeacher.firstName}}</p>
           <p>Score obtained</p>
@@ -68,7 +66,7 @@ export default {
     topTeachers: []
   }),
   created() {
-    TopTeachersService.getAll(1)
+    TopTeachersService.getAll()
         .then((response) => {
           this.topTeachers = response.data.map(this.getDisplayTopTeachers);
           this.topTeachers.sort(((a, b) => a.points - b.points)).reverse();

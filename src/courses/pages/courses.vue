@@ -53,7 +53,7 @@ export default {
       };
     },
     refreshList (){
-      CoursesService.getAll(1)
+      CoursesService.getAll()
           .then((response) => {
             this.courses = response.data.map(this.getDisplayCourse);
             console.log(response.data);
