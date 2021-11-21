@@ -17,7 +17,7 @@
                           section. You will see an ordered list with important information about the teachers in
                           your educational institution.
                         </v-card-text>
-                        <v-card-actions class="pl-4">
+                        <v-card-actions v-if="typeUser=='director'" class="pl-4">
                           <v-btn color="indigo accent-4" outlined link to="/teachers">Let's go!</v-btn>
                         </v-card-actions>
                       </v-col>
@@ -51,7 +51,7 @@
                           studying and complete the items of it. Here you can also view the progress of which
                           sections are complete. You can also see the skills related to the course.
                         </v-card-text>
-                        <v-card-actions class="pl-4">
+                        <v-card-actions v-if="typeUser=='teacher'" class="pl-4">
                           <v-btn outlined color="indigo accent-4" link to="/courses">Let's go!</v-btn>
                         </v-card-actions>
                       </v-col>
@@ -100,7 +100,7 @@
                   ></v-progress-linear>
                 </v-card>
               </v-col>
-              <v-col cols="12">
+              <v-col cols="12" v-if="typeUser=='teacher'">
                 <h3 class="mb-2 pl-1">Profile</h3>
                 <v-card class="py-2">
                   <v-container>
@@ -131,8 +131,12 @@
                   <v-card-title>{{ this.announcements[1].title }}</v-card-title>
                   <v-card-text>{{ this.announcements[1].description }}</v-card-text>
                 </v-card>
+                <v-card class="mb-3" v-if="typeUser=='director'">
+                  <v-card-title>{{ this.announcements[2].title }}</v-card-title>
+                  <v-card-text>{{ this.announcements[2].description }}</v-card-text>
+                </v-card>
               </v-col>
-              </v-row>
+            </v-row>
 
         </v-container>
         </v-col>
@@ -152,11 +156,13 @@ export default {
     announcements: [],
     id: '',
     title: '',
-    description: ''
+    description: '',
+    typeUser: '',
   }),
   created() {
     this.setProgressDate(),
     this.refreshList()
+    this.typeUser = localStorage.getItem('typeUser')
   },
   methods: {
     setProgressDate(){

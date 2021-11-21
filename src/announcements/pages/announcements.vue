@@ -50,11 +50,12 @@ import AnnouncementsService from '@/announcements/services/announcements.service
 export default {
   name: "announcements",
   data: () => ({
+    user: {},
     announcements: [],
     id: '',
     title: '',
     description: '',
-    directorId: 0,
+    directorId: null,
     rules: [
       value => !!value || 'Required.',
       value => (value && value.length >= 3) || 'Min 3 characters',
@@ -69,7 +70,7 @@ export default {
         id: announcement.id,
         title: announcement.title,
         description: announcement.description,
-        directorId: this.directorId
+        directorId: announcement.directorId
       };
     },
     refreshList (){
@@ -80,10 +81,12 @@ export default {
           })
     },
     createNewAnnouncement () {
+      this.user =  JSON.parse(localStorage.getItem('user'))
+      console.log("Aqui:", this.user)
       const announcement = {
         title: this.title,
         description: this.description,
-        directorId: this.directorId
+        directorId: this.user.id
       }
       AnnouncementsService.create(announcement)
           .then((response) => {

@@ -1,10 +1,12 @@
 <template>
-  <div class="log-in">
+  <div class="log-in mt-15 pt-15">
     <v-container class="mt-5 px-4">
       <v-row>
         <v-col cols="12" align="center">
-          <v-card max-width="400" >
-            <v-card-title class="justify-center font-weight-bold mb-5">Log In</v-card-title>
+          <v-hover>
+            <template v-slot:default="{ hover }">
+              <v-card max-width="400" :class="`elevation-${hover ? 24 : 3}`" class="transition-swing" >
+            <v-card-title class="justify-center font-weight-bold mb-2">Log In</v-card-title>
 
             <v-card-text class="pb-0">
               <v-form ref="form" v-model="valid" lazy-validation>
@@ -41,6 +43,27 @@
                     </v-tooltip>
                   </template>
                 </v-text-field>
+                <v-radio-group v-model="typeUser"
+                               class="pa-0 ma-0 ml-2 mb-1"
+                               :rules="radioRules"
+                               row required>
+                  <v-radio
+                      label="Director"
+                      value="director"
+                  ></v-radio>
+                  <v-radio
+                      label="Teacher"
+                      value="teacher"
+                  ></v-radio>
+                  <template v-slot:append>
+                    <v-tooltip bottom>
+                      <template v-slot:activator="{ on }">
+                        <v-icon v-on="on" class="mr-3">mdi-help-circle-outline</v-icon>
+                      </template>
+                      Type of user
+                    </v-tooltip>
+                  </template>
+                </v-radio-group>
               </v-form>
             </v-card-text>
 
@@ -61,6 +84,8 @@
               </v-btn>
             </v-card-actions>
           </v-card>
+            </template>
+          </v-hover>
         </v-col>
       </v-row>
     </v-container>
@@ -84,11 +109,15 @@ export default {
   data: () => ({
     snackbar: false,
     text: '',
+    typeUser: "",
     password: null,
     formHasErrors: false,
     valid: true,
     passwordRules: [
       v => !!v || 'Password is required',
+    ],
+    radioRules: [
+      v => !!v || 'Type user is required',
     ],
     email: '',
     emailRules: [
@@ -96,11 +125,17 @@ export default {
       v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
     ],
   }),
-
+  mounted() {
+    this.$store.dispatch('changeAuthenticatedFalseAction')
+    if(localStorage.getItem('user')){
+        router.push('/')
+    }
+  },
   methods: {
     submit () {
       this.$refs.form.validate()
       let val = this.$refs.form.validate();
+      let val2 = this.typeUser;
       console.log(val);
 
       if(val){
@@ -113,6 +148,8 @@ export default {
             .then(response => {
               if (response.data.token) {
                 localStorage.setItem('user', JSON.stringify(response.data));
+                localStorage.setItem('typeUser', val2);
+                this.$store.dispatch('changeAuthenticatedTrueAction')
                 router.push('/')
               }
               console.log(response);
