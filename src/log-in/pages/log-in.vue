@@ -64,13 +64,26 @@
         </v-col>
       </v-row>
     </v-container>
+    <v-snackbar v-model="snackbar" color="error" dark>
+      {{ text }}
+      <template v-slot:action="{ attrs }">
+        <v-btn text v-bind="attrs" @click="snackbar = false">
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
   </div>
 </template>
 
 <script>
+import AuthService from '@/log-in/services/log-in.service'
+import router from "@/router";
+
 export default {
   name: "log-in",
   data: () => ({
+    snackbar: false,
+    text: '',
     password: null,
     formHasErrors: false,
     valid: true,
@@ -91,12 +104,25 @@ export default {
       console.log(val);
 
       if(val){
-        const usuario = {
-          correo: this.email,
+        const user = {
+          email: this.email,
           password: this.password,
         };
 
-        console.log("el usuario es: ", usuario);
+        AuthService.login(user)
+            .then(response => {
+              if (response.data.token) {
+                localStorage.setItem('user', JSON.stringify(response.data));
+                router.push('/')
+              }
+              console.log(response);
+            })
+            .catch(e => {
+              this.snackbar = true;
+              this.text = 'Wrong username or password';
+              console.log(e);
+            });
+        console.log("The user is: ", user);
 
         this.reset()
       }
