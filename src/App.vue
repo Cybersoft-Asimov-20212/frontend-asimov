@@ -149,7 +149,7 @@ export default {
   mounted() {
     if(!localStorage.getItem('user')){
       this.val = false;
-      router.push("/log-in");
+      router.push("/sign-up");
     }
   },
   methods:{
