@@ -6,16 +6,30 @@
           <h1>Announcements for teachers</h1>
         </v-col>
         <v-col cols="12">
-          <v-card class="px-3 pb-6">
-            <form>
-              <div class="pa-5">
-                <v-text-field class="pa-3" v-model="title" label="Title announcement input"  :rules="rules"  hide-details="auto"></v-text-field>
-                <v-text-field class="pa-3"  v-model="description" label="Description announcement input" :rules="rules" hide-details="auto"></v-text-field>
-              </div>
-              <div class="pl-8">
-                <v-btn outlined rounded color="indigo accent-4" class="font-weight-bold pa-3" @click="createNewAnnouncement">Submit</v-btn>
-              </div>
-            </form>
+          <v-card class="px-3 pb-1 pt-4">
+            <v-form ref="form" v-model="valid" lazy-validation>
+              <v-text-field
+                  hide-details="auto"
+                  class="pb-2"
+                  v-model="title"
+                  :rules="rules"
+                  label="Title"
+                  placeholder="Title announcement input"
+                  dense required outlined
+              ></v-text-field>
+              <v-text-field
+                  hide-details="auto"
+                  class="pb-1"
+                  v-model="description"
+                  :rules="rules"
+                  label="Description"
+                  placeholder="Description announcement input"
+                  dense required outlined
+              ></v-text-field>
+            </v-form>
+            <v-card-actions>
+              <v-btn outlined rounded color="indigo accent-4" class="font-weight-bold pa-3" @click="createNewAnnouncement">Submit</v-btn>
+            </v-card-actions>
           </v-card>
         </v-col>
       </v-row>
@@ -39,6 +53,14 @@
 
       </v-row>
     </v-container>
+    <v-snackbar v-model="snackbar" color="success"  dark>
+      {{ text }}
+      <template v-slot:action="{ attrs }">
+        <v-btn text v-bind="attrs" @click="snackbar = false">
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
   </div>
 </template>
 
@@ -46,15 +68,20 @@
 
 
 import AnnouncementsService from '@/announcements/services/announcements.service';
-import { v4 as uuidv4 } from 'uuid';
 
 export default {
   name: "announcements",
   data: () => ({
+    snackbar: false,
+    valid: true,
+    text: '',
+    color: '',
+    user: {},
     announcements: [],
     id: '',
     title: '',
     description: '',
+    directorId: null,
     rules: [
       value => !!value || 'Required.',
       value => (value && value.length >= 3) || 'Min 3 characters',
@@ -68,37 +95,53 @@ export default {
       return {
         id: announcement.id,
         title: announcement.title,
-        description: announcement.description
+        description: announcement.description,
+        directorId: announcement.directorId
       };
     },
     refreshList (){
-      AnnouncementsService.getAll()
+      let user = JSON.parse(localStorage.getItem('user'))
+      AnnouncementsService.getAllByID(user.id)
           .then((response) => {
             this.announcements = response.data.map(this.getDisplayAnnouncement);
             console.log(response.data);
           })
     },
     createNewAnnouncement () {
-      const announcement = {
-        id: uuidv4(),
-        title: this.title,
-        description: this.description
+
+      this.$refs.form.validate()
+      let val = this.$refs.form.validate();
+      if(val) {
+        this.user = JSON.parse(localStorage.getItem('user'))
+        const announcement = {
+          title: this.title,
+          description: this.description,
+          directorId: this.user.id
+        }
+        AnnouncementsService.create(announcement)
+            .then((response) => {
+              console.log(response.data);
+              this.text = 'Create announcement correctly';
+              this.snackbar = true;
+              this.reset();
+              this.refreshList();
+            })
       }
-      AnnouncementsService.create(announcement)
-          .then((response) => {
-            console.log(response.data);
-            this.refreshList();
-          })
     },
     deleteAnnouncement(id){
       AnnouncementsService.delete(id)
           .then( () => {
+            this.text = 'Delete announcement correctly';
+            this.snackbar = true;
             this.refreshList();
           })
           .catch(e => {
             console.log(e);
           })
     },
+    reset () {
+      this.$refs.form.reset()
+    }
   }
 }
 </script>

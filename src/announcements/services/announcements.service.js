@@ -1,12 +1,12 @@
 import http from '@/core/http-common'
 class AnnouncementsService {
     endpoint = '/announcements';
-    getAll(){
-        return http.get(this.endpoint);
+    getAllByID(id){
+        return http.get(`directors/${id}${this.endpoint}`);
     }
 
     create(createAnnouncementDto){
-        return http.post(this.endpoint, createAnnouncementDto);
+        return http.post(`${this.endpoint}`, createAnnouncementDto);
     }
 
     delete(id){

@@ -7,38 +7,38 @@ const routes = [
   {
     path: '/',
     name: 'dashboard',
-    component: () => import(/* webpackChunkName: "about" */ '@/dashboard/pages/dashboard')
+    component: () => import(/* webpackChunkName: "dashboard" */ '@/dashboard/pages/dashboard')
   },
   {
     path: '/dashboard',
     name: 'dashboard',
-    component: () => import(/* webpackChunkName: "about" */ '@/dashboard/pages/dashboard')
+    component: () => import(/* webpackChunkName: "dashboard" */ '@/dashboard/pages/dashboard')
   },
   {
     path: '/announcements',
     name: 'announcements',
-    component: () => import(/* webpackChunkName: "about" */ '@/announcements/pages/announcements')
+    component: () => import(/* webpackChunkName: "announcements" */ '@/announcements/pages/announcements')
   },
   {
     path: '/competences',
     name: 'competences',
-    component: () => import(/* webpackChunkName: "about" */ '@/competences/pages/competences')
+    component: () => import(/* webpackChunkName: "competences" */ '@/competences/pages/competences')
   },
   {
     path: '/courses',
     name: 'courses',
-    component: () => import(/* webpackChunkName: "about" */ '@/courses/pages/courses')
+    component: () => import(/* webpackChunkName: "courses" */ '@/courses/pages/courses')
   },
   {
     path: '/courses/:id',
     name: 'course-detail',
-    component: () => import(/* webpackChunkName: "about" */ '@/courses/pages/course-detail')
+    component: () => import(/* webpackChunkName: "course-detail" */ '@/courses/pages/course-detail')
 
   },
   {
     path: '/teachers',
     name: 'teachers',
-    component: () => import(/* webpackChunkName: "about" */ '@/teachers/pages/teachers')
+    component: () => import(/* webpackChunkName: "teachers" */ '@/teachers/pages/teachers')
   },
   {
     path: '/teachers/:id',
@@ -46,19 +46,29 @@ const routes = [
     component: () => import('@/teachers/pages/teacher-detail')
   },
   {
-    path: '/profile/:id',
+    path: '/profile',
     name: 'profile',
     component: () => import('@/profile/pages/profile')
   },
   {
     path: "/top-teachers",
     name: 'top-teachers',
-    component: () => import(/* webpackChunkName: "about" */ '@/top-teachers/pages/top-teachers')
+    component: () => import(/* webpackChunkName: "top-teachers" */ '@/top-teachers/pages/top-teachers')
   },
   {
     path: '/announcements-for-teachers',
     name: 'announcements-for-teachers',
-    component: () => import(/* webpackChunkName: "about" */ '@/announcements/pages/announcements-for-teachers')
+    component: () => import(/* webpackChunkName: "announcements-for-teachers" */ '@/announcements/pages/announcements-for-teachers')
+  },
+  {
+    path: '/sign-up',
+    name: 'sign-up',
+    component: () => import(/* webpackChunkName: "sign-up" */ '@/sign-up/pages/sign-up')
+  },
+  {
+    path: '/log-in',
+    name: 'log-in',
+    component: () => import(/* webpackChunkName: "log-in" */ '@/log-in/pages/log-in')
   }
 ]
 

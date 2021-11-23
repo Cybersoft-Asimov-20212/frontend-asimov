@@ -18,7 +18,7 @@
               </v-card-title>
             </div>
             <v-card-text class="text-justify pb-1 text--secondary">
-              <strong>Concept: </strong>{{competence.concept}}
+              <strong>Concept: </strong>{{competence.description}}
             </v-card-text>
           </v-card>
         </div>
@@ -36,8 +36,7 @@ export default {
     competences: [],
     id: '',
     title: '',
-    concept: '',
-    courseId: '',
+    description: '',
   }),
   created() {
     this.refreshList()
@@ -47,8 +46,7 @@ export default {
       return {
         id: competence.id,
         title: competence.title,
-        concept: competence.concept,
-        courseId: competence.courseId
+        description: competence.description,
       };
     },
     refreshList (){

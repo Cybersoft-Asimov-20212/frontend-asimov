@@ -1,22 +1,24 @@
 <template>
     <v-app>
       <v-app-bar dark absolute app>
-        <v-app-bar-nav-icon  @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon v-if="val" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <v-toolbar-title class="font-weight-bold my-auto"><v-icon class="mr-1 py-1">mdi-school</v-icon>Asimov</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn depressed rounded class="text-capitalize" to="/profile/2">Profile<v-icon class="ml-2">mdi-account-circle</v-icon></v-btn>
+        <v-btn v-if="val" depressed outlined rounded class="text-capitalize mx-1" to="/profile">Profile<v-icon class="ml-2">mdi-account-circle</v-icon></v-btn>
+        <v-btn v-if="val" depressed outlined rounded class="text-capitalize mx-1" @click="logOut">Log out<v-icon class="ml-2">mdi-logout-variant</v-icon></v-btn>
       </v-app-bar>
 
-      <v-navigation-drawer v-model="drawer" dark absolute bottom temporary>
-        <v-list-item align="center">
+      <v-navigation-drawer v-if="val" v-model="drawer" dark absolute bottom temporary>
+
+        <v-list-item v-if="typeUser=='director'" align="center">
           <v-list-item-content>
             <v-list-item-title class="font-weight-bold">Side-Menu-Director</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
-        <v-divider></v-divider>
+        <v-divider v-if="typeUser=='director'"></v-divider>
 
-        <v-list dense rounded>
+        <v-list v-if="typeUser=='director'" dense rounded>
           <v-list-item link to="/dashboard">
             <v-list-item-icon>
               <v-icon>mdi-view-dashboard</v-icon>
@@ -53,16 +55,16 @@
           </v-list-item>
         </v-list>
 
-        <v-divider></v-divider>
-        <v-list-item align="center">
+        <v-divider v-if="typeUser=='teacher'"></v-divider>
+        <v-list-item v-if="typeUser=='teacher'" align="center">
           <v-list-item-content>
             <v-list-item-title class="font-weight-bold">Side-Menu-Teacher</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-divider></v-divider>
+        <v-divider v-if="typeUser=='teacher'"></v-divider>
 
 
-        <v-list dense rounded>
+        <v-list v-if="typeUser=='teacher'" dense rounded>
           <v-list-item link to="/dashboard">
             <v-list-item-icon>
               <v-icon>mdi-view-dashboard</v-icon>
@@ -130,12 +132,34 @@
 </template>
 
 <script>
+
+import router from "@/router";
+
 export default {
   data: () => ({
     drawer: false,
     group: null,
+    val: true,
+    typeUser: '',
   }),
-
+  updated() {
+    this.val = this.$store.state.authenticated;
+    this.typeUser = localStorage.getItem('typeUser')
+  },
+  mounted() {
+    if(!localStorage.getItem('user')){
+      this.val = false;
+      router.push("/sign-up");
+    }
+  },
+  methods:{
+    logOut() {
+      localStorage.removeItem('user');
+      localStorage.removeItem('typeUser');
+      this.$store.dispatch('changeAuthenticatedFalseAction');
+      router.push("/log-in")
+    }
+  },
   watch: {
     group () {
       this.drawer = false

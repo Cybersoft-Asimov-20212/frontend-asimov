@@ -1,6 +1,7 @@
 import axios from "axios";
+import authHeader from '@/services/auth-header'
 
 export default axios.create({
-    baseURL: 'http://localhost:3000/api/v1',
-    headers: {'Content-type' : 'application/json'}
+    baseURL: 'https://localhost:5001/api/v1',
+    headers: authHeader()
 })
