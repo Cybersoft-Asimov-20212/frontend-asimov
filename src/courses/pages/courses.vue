@@ -17,7 +17,7 @@
                 {{course.name}}
               </v-card-title>
             </div>
-            <v-card-text class="text-justify pb-1 text--secondary">
+            <v-card-text class="text-justify pb-1 text--secondary text-truncate">
               <strong>Description:</strong> {{course.description}}
             </v-card-text>
             <v-card-actions>

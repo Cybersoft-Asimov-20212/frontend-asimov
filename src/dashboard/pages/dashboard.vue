@@ -131,10 +131,6 @@
                   <v-card-title>{{ this.announcements[1].title }}</v-card-title>
                   <v-card-text>{{ this.announcements[1].description }}</v-card-text>
                 </v-card>
-                <v-card class="mb-3" v-if="typeUser=='director'">
-                  <v-card-title>{{ this.announcements[2].title }}</v-card-title>
-                  <v-card-text>{{ this.announcements[2].description }}</v-card-text>
-                </v-card>
               </v-col>
             </v-row>
 
@@ -161,8 +157,8 @@ export default {
   }),
   created() {
     this.setProgressDate(),
-    this.refreshList()
     this.typeUser = localStorage.getItem('typeUser')
+    this.refreshList()
   },
   methods: {
     setProgressDate(){
@@ -183,10 +179,17 @@ export default {
       };
     },
     refreshList (){
-      DashboardService.getAll(1)
+      let user = JSON.parse(localStorage.getItem('user'));
+      let valId;
+      if(this.typeUser=='teacher'){
+        valId = user.directorId;
+      }
+      if(this.typeUser=='director'){
+        valId = user.id;
+      }
+      DashboardService.getAll(valId)
           .then((response) => {
             this.announcements = response.data.map(this.getDisplayAnnouncement);
-            this.announcements.reverse();
             console.log(response.data);
           })
     },
