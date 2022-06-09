@@ -1,15 +1,15 @@
 <template>
   <div class="courses">
-    <v-row class="pt-4">
-      <v-col cols="12" class="pb-0">
+    <v-row class="pt-8">
         <h1 class="pl-5">Courses</h1>
-      </v-col>
+        <v-spacer></v-spacer>
+        <v-select class="px-10" outlined dense :items="items" label="Grade Filter" v-model="gradeSelect"></v-select>
     </v-row>
     <v-row>
       <v-col cols="12">
         <div class="d-flex flex-wrap justify-center mb-8">
           <div v-for="course in courses" :key="course.id">
-            <v-card v-if="course.name=='Geography'" class="pb-2 ma-3" width="290" max-height="450">
+            <v-card v-if="course.grade==gradeSelect" class="pb-2 ma-3" width="290" max-height="450">
               <div class="indigo accent-3">
                 <v-card-subtitle class="pb-0 white--text">
                   Course
@@ -42,6 +42,9 @@ export default {
     id: '',
     name: '',
     description: '',
+    grade: '',
+    gradeSelect: '1ro',
+    items: ['1ro','2do','3ro'],
   }),
   created() {
     this.refreshList()
@@ -51,7 +54,8 @@ export default {
       return {
         id: course.id,
         name: course.name,
-        description: course.description
+        description: course.description,
+        grade: course.grade,
       };
     },
     refreshList (){
