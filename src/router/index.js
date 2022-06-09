@@ -69,6 +69,11 @@ const routes = [
     path: '/log-in',
     name: 'log-in',
     component: () => import(/* webpackChunkName: "log-in" */ '@/log-in/pages/log-in')
+  },
+  {
+    path: '/start-guide',
+    name: 'start-guide',
+    component: () => import(/* webpackChunkName: "log-in" */ '@/start-guide/pages/start-guide')
   }
 ]
 
