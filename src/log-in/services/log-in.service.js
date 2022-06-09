@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_URL = 'http://appservice-webapp-totemcrew.azurewebsites.net/auth/';
+const API_URL = 'https://appservice-webapp-totemcrew.azurewebsites.net/auth/';
 
 class AuthService {
     login(user, typeU) {

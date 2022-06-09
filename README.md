@@ -30,6 +30,7 @@ $ npm run serve
 
 ### Version
 * version 1.0.0 - 09/06/2022
+* version 1.0.1 - 09/06/2022
 
 
 See [Frontend deployed](https://pry-asimov-cybersoft-21.web.app/).
