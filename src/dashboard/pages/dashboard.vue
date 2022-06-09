@@ -121,6 +121,25 @@
                   </v-container>
                 </v-card>
               </v-col>
+              <v-col cols="12" v-if="typeUser=='director'">
+                <h3 class="mb-2 pl-1">Start Guide</h3>
+                <v-card class="py-2">
+                  <v-container>
+                    <v-row>
+                      <div class="d-flex justify-start align-center ml-5 mr-3">
+                        <v-icon>mdi-check-bold</v-icon>
+                      </div>
+                      <v-col>
+                        <p class="font-weight-bold mb-0">Have a good start</p>
+                        <p class="text--primary mb-1">Lorem ipsum!</p>
+                      </v-col>
+                      <v-col class="d-flex justify-center align-center">
+                          <v-btn color="green accent-4" outlined link to="/start-guide">Lets Go!</v-btn>
+                      </v-col>
+                    </v-row>
+                  </v-container>
+                </v-card>
+              </v-col>
               <v-col cols="12" align-self="end">
                 <h3 class="mb-2 pl-1">Last announcements</h3>
                 <v-card class="mb-3">

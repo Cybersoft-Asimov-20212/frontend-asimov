@@ -1,13 +1,14 @@
 # Frontend Asimov 🎓
 
 ## Description
-This repository contains the frontend for the asimov project
+This repository contains the backend for the asimov project
 
-## Team CyberSoft 👨‍💻
-* Denis Omar Alvarado Irigoin - U20171D006
+## Team TotemCrew 👨‍💻
+* Aldair Cuarez Baldeon - U201521752
+* Italo Samir Silva Silvera - U201621319
+* Julio Enrique Barrios Aedo - U201912137
 * Julio Alexander Salazar Zapata - U202017572
-* Rodrigo Andre Sabino Valer - U201811286
-* Yordy Rolando Mochcco Atauje - U201923959
+* Sebastian Paul Vivanco Avellaneda - U201817841
 
 ## Project setup
 
@@ -26,5 +27,9 @@ $ json-server --watch db.json --routes routes.json
 ```
 $ npm run serve
 ```
+
+### Version
+* version 1.0.0 - 09/06/2022
+
 
 See [Frontend deployed](https://pry-asimov-cybersoft-21.web.app/).
