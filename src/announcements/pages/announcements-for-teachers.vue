@@ -10,9 +10,14 @@
             <v-card class="mx-auto my-3 mx-2" elevation="1">
               <v-card-title><v-icon class="mr-3">mdi-human-queue</v-icon>
                 {{announcement.title}}</v-card-title>
-              <v-container class="d-flex justify-space-between pt-1 pb-3 px-4 align-center">
+              <v-container class="d-flex justify-space-between pt-1 pb-1 px-4 align-center">
                 <p class="mb-0">{{announcement.description}}</p>
               </v-container>
+              <v-card-actions class="pt-0">
+                <v-spacer></v-spacer>
+                <v-btn icon><v-icon>mdi-thumb-up</v-icon></v-btn>
+                <v-btn icon><v-icon>mdi-thumb-down</v-icon></v-btn>
+            </v-card-actions>
             </v-card>
           </div>
         </v-col>
