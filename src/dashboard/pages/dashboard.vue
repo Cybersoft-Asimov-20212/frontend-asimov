@@ -162,8 +162,8 @@ export default {
   },
   methods: {
     setProgressDate(){
-      let dateStart = new Date(2021,2,20);
-      let dateEnd = new Date(2021,11,10);
+      let dateStart = new Date(2022,2,20);
+      let dateEnd = new Date(2022,11,10);
       let dateNow = new Date();
       let totalDays = dateEnd - dateStart;
       let daysProgress = dateNow - dateStart;
